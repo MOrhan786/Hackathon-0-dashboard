@@ -1,0 +1,356 @@
+{
+  "date": "2026-03-03",
+  "entries": [
+    {
+      "timestamp": "2026-03-03T05:23:35Z",
+      "correlation_id": "872cc5ec-21fd-4512-8b4b-40f5329b0670",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:23:48Z",
+      "correlation_id": "23a06f98-1a45-47ab-b4c0-184bffa15592",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:24:10Z",
+      "correlation_id": "adb369de-1df5-4853-8665-3fb1dafbb5b7",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:25:57Z",
+      "correlation_id": "74a57b59-9c0d-45f1-8d50-7f59dd8879cb",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:26:33Z",
+      "correlation_id": "fc782e64-cbdc-406e-b311-8e947abf7c34",
+      "actor": "facebook_watcher",
+      "action_type": "error",
+      "target": "facebook",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:27:53Z",
+      "correlation_id": "9d20ec50-e060-49ac-b113-0814e3206c95",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:29:51Z",
+      "correlation_id": "86ad6f07-de17-458b-ae45-ddac139cf715",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:30:02Z",
+      "correlation_id": "f7150119-de22-4931-97d1-96626daaa485",
+      "actor": "linkedin_watcher",
+      "action_type": "error",
+      "target": "linkedin",
+      "error": "scan_failed",
+      "details": {
+        "consecutive_errors": 1,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:30:09Z",
+      "correlation_id": "cbe37997-517e-435f-9523-fb3a8a817350",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:30:38Z",
+      "correlation_id": "0f0ddb52-dd1b-40d0-abf1-079fd61176b7",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:31:47Z",
+      "correlation_id": "913af37f-4934-4539-a9a8-d4904157fa9f",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:32:42Z",
+      "correlation_id": "e0a4a85b-ca58-43e9-9ace-8f6ad3148f51",
+      "actor": "facebook_watcher",
+      "action_type": "error",
+      "target": "facebook",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:33:41Z",
+      "correlation_id": "d2a43e4c-7e43-4e2d-8fdc-5ffac2a30939",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:35:29Z",
+      "correlation_id": "23844721-30f9-45cf-9017-aa7e09f1cfa6",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:36:56Z",
+      "correlation_id": "bcf9baa5-5701-4e96-a480-4257ed605885",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:37:18Z",
+      "correlation_id": "c569ee3d-4f13-4b02-9ae4-64760e95b830",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:37:23Z",
+      "correlation_id": "4aae2152-bb5d-43d4-b603-6387926c6852",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:38:47Z",
+      "correlation_id": "5c8abf8e-ed8c-4b9b-9b75-9a97e4ae5c8f",
+      "actor": "facebook_watcher",
+      "action_type": "error",
+      "target": "facebook",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:39:08Z",
+      "correlation_id": "42524540-eb7f-4345-a3e2-c63ec0bdd084",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:40:59Z",
+      "correlation_id": "bb7ccddd-f950-4fb2-bde5-717c970eef82",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:43:13Z",
+      "correlation_id": "36ea76c5-8816-43c0-b165-4f181524878b",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:43:26Z",
+      "correlation_id": "f3f12e05-2183-480c-a94d-7e550bf981dd",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:43:54Z",
+      "correlation_id": "616dd854-3aee-4ff7-b38e-57674732b3b3",
+      "actor": "twitter_watcher",
+      "action_type": "error",
+      "target": "twitter",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:45:09Z",
+      "correlation_id": "6c7fe790-2a83-462d-a4dd-433947361678",
+      "actor": "facebook_watcher",
+      "action_type": "error",
+      "target": "facebook",
+      "error": "messages_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:45:14Z",
+      "correlation_id": "967ddaf8-6554-4f28-b8d9-627b84decdc4",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:47:23Z",
+      "correlation_id": "418eb085-cf0d-492d-835b-f52693bd662c",
+      "actor": "instagram_watcher",
+      "action_type": "error",
+      "target": "instagram",
+      "error": "dms_session_login_required",
+      "details": {
+        "consecutive_errors": 0,
+        "dev_mode": false
+      },
+      "result": "failure"
+    },
+    {
+      "timestamp": "2026-03-03T05:49:07Z",
+      "correlation_id": "e59c8567-8ed1-46aa-ac92-e2ed08e5e368",
+      "actor": "linkedin_watcher",
+      "action_type": "error",
+      "target": "linkedin",
+      "error": "scan_failed",
+      "details": {
+        "consecutive_errors": 1,
+        "dev_mode": false
+      },
+      "result": "failure"
+    }
+  ]
+}

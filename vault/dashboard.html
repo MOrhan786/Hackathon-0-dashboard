@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Employee Dashboard — NexaTech Solutions</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #232733;
+    --border: #2d3142;
+    --text: #e4e6f0;
+    --text-dim: #8b8fa3;
+    --accent: #6c63ff;
+    --accent-glow: rgba(108,99,255,0.15);
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,0.1);
+    --yellow: #eab308;
+    --yellow-bg: rgba(234,179,8,0.1);
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --blue-bg: rgba(59,130,246,0.08);
+    --cyan: #06b6d4;
+    --purple: #a855f7;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Sidebar Nav ─────────────────────── */
+  .sidebar {
+    position: fixed; left: 0; top: 0; bottom: 0;
+    width: 60px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    gap: 6px;
+    z-index: 100;
+    transition: width 0.3s;
+  }
+  .sidebar:hover { width: 190px; }
+  .sidebar:hover .nav-label { opacity: 1; width: auto; }
+  .sidebar .logo-sm {
+    width: 38px; height: 38px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px var(--accent-glow);
+  }
+  .nav-btn {
+    width: 100%; padding: 10px 16px;
+    display: flex; align-items: center; gap: 12px;
+    background: none; border: none; color: var(--text-dim);
+    font-size: 0.82rem; cursor: pointer;
+    border-radius: 0;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .nav-btn:hover, .nav-btn.active { background: var(--accent-glow); color: var(--text); }
+  .nav-btn.active { border-right: 3px solid var(--accent); }
+  .nav-btn .nav-icon { font-size: 18px; min-width: 28px; text-align: center; }
+  .nav-label { opacity: 0; width: 0; overflow: hidden; transition: opacity 0.2s, width 0.2s; font-weight: 500; }
+
+  /* ── Main content ─────────────────────── */
+  .main { margin-left: 60px; }
+
+  /* ── Header ─────────────────────── */
+  .header {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .header h1 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .header h1 span { color: var(--accent); }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .badge-prod { background: var(--green-bg); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+  .header-right { display: flex; align-items: center; gap: 14px; }
+  .meta-text { font-size: 0.78rem; color: var(--text-dim); }
+  .pulse-dot { width: 9px; height: 9px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; box-shadow: 0 0 8px var(--green); }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);} }
+  #liveClock { font-weight: 600; color: var(--text); font-size: 0.82rem; }
+
+  /* ── Sections (pages) ─────────────────── */
+  .section { display: none; padding: 24px 28px; max-width: 1360px; margin: 0 auto; }
+  .section.active { display: block; animation: fadeIn 0.35s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);} }
+
+  /* ── Stat Cards ─────────────────────── */
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 14px; margin-bottom: 22px; }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 18px; position: relative; overflow: hidden;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.35); border-color: var(--accent); }
+  .stat-card .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; margin-bottom: 10px; }
+  .stat-card .value { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .stat-card .label { font-size: 0.76rem; color: var(--text-dim); margin-top: 4px; font-weight: 500; }
+  .stat-card .trend { position: absolute; top: 14px; right: 14px; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 8px; }
+  .trend-up { background: var(--green-bg); color: var(--green); }
+  .trend-warn { background: var(--yellow-bg); color: var(--yellow); }
+
+  /* ── Grid layouts ─────────────────────── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px; }
+  .grid-3 { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; margin-bottom: 22px; }
+  @media (max-width:900px) { .grid-2,.grid-3 { grid-template-columns: 1fr; } }
+
+  /* ── Panels ─────────────────────── */
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .panel-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .panel-header h2 { font-size: 0.92rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .panel-body { padding: 14px 18px; }
+
+  /* ── Health Banner ─────────────────────── */
+  .health-banner {
+    background: var(--green-bg); border: 1px solid rgba(34,197,94,0.25);
+    border-radius: 14px; padding: 14px 22px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.88rem; font-weight: 500; margin-bottom: 22px;
+    cursor: pointer; transition: transform 0.2s;
+  }
+  .health-banner:hover { transform: scale(1.005); }
+  .health-icon { font-size: 1.4rem; }
+
+  /* ── Tables ─────────────────────── */
+  table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  th { text-align: left; padding: 9px 12px; color: var(--text-dim); font-weight: 600; font-size: 0.73rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); }
+  td { padding: 11px 12px; border-bottom: 1px solid rgba(45,49,66,0.5); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tbody tr { cursor: pointer; transition: background 0.15s; }
+  tbody tr:hover { background: var(--accent-glow); }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 20px; font-size: 0.76rem; font-weight: 600; }
+  .status-running { background: var(--green-bg); color: var(--green); }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+  /* ── Revenue ─────────────────────── */
+  .revenue-labels { display: flex; justify-content: space-between; font-size: 0.76rem; color: var(--text-dim); margin-bottom: 6px; }
+  .revenue-bar { height: 28px; background: var(--surface2); border-radius: 14px; overflow: hidden; position: relative; }
+  .revenue-fill { height: 100%; border-radius: 14px; background: linear-gradient(90deg, var(--accent), var(--cyan)); display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; font-size: 0.72rem; font-weight: 700; color: white; min-width: 50px; width: 0; transition: width 1.8s cubic-bezier(0.22,1,0.36,1); }
+
+  /* ── OKR Bars ─────────────────────── */
+  .okr-item { padding: 11px 0; border-bottom: 1px solid rgba(45,49,66,0.4); }
+  .okr-item:last-child { border-bottom: none; }
+  .okr-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+  .okr-title { font-size: 0.82rem; font-weight: 600; }
+  .okr-pct { font-size: 0.78rem; font-weight: 700; color: var(--accent); }
+  .okr-bar { height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+  .okr-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--purple)); width: 0; transition: width 1.8s cubic-bezier(0.22,1,0.36,1); }
+
+  /* ── Activity ─────────────────────── */
+  .activity-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(45,49,66,0.4); cursor: pointer; transition: background 0.15s; border-radius: 8px; padding-left: 8px; padding-right: 8px; margin: 0 -8px; }
+  .activity-item:hover { background: var(--accent-glow); }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-icon { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .activity-text { font-size: 0.82rem; font-weight: 500; flex: 1; }
+  .activity-time { font-size: 0.72rem; color: var(--text-dim); white-space: nowrap; }
+  .activity-arrow { color: var(--text-dim); font-size: 0.8rem; }
+
+  /* ── Clients ─────────────────────── */
+  .client-item { display: flex; align-items: center; gap: 12px; padding: 12px 8px; border-bottom: 1px solid rgba(45,49,66,0.4); cursor: pointer; transition: background 0.15s; border-radius: 8px; margin: 0 -8px; }
+  .client-item:hover { background: var(--accent-glow); }
+  .client-item:last-child { border-bottom: none; }
+  .client-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+  .client-info { flex: 1; }
+  .client-name { font-size: 0.84rem; font-weight: 600; }
+  .client-company { font-size: 0.72rem; color: var(--text-dim); }
+  .client-priority { font-size: 0.66rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; }
+  .priority-p0 { background: rgba(239,68,68,0.15); color: var(--red); }
+  .priority-p1 { background: rgba(234,179,8,0.15); color: var(--yellow); }
+  .priority-p2 { background: var(--blue-bg); color: var(--blue); }
+
+  /* ── Flow Pipeline ─────────────────── */
+  .flow-container { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center; padding: 8px 0; }
+  .flow-node { text-align: center; padding: 10px 14px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); min-width: 88px; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+  .flow-node:hover { transform: scale(1.08); border-color: var(--accent); }
+  .flow-count { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .flow-label { font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; }
+  .flow-arrow { color: var(--text-dim); font-size: 1.1rem; }
+
+  /* ── Comm Grid ─────────────────────── */
+  .comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .comm-item { background: var(--surface2); border-radius: 10px; padding: 14px; text-align: center; cursor: pointer; transition: transform 0.2s, border-color 0.2s; border: 1px solid transparent; }
+  .comm-item:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .comm-value { font-size: 1.3rem; font-weight: 800; }
+  .comm-label { font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+
+  /* ── Initiatives ─────────────────────── */
+  .initiative-item { padding: 12px 8px; border-bottom: 1px solid rgba(45,49,66,0.4); cursor: pointer; transition: background 0.15s; border-radius: 8px; margin: 0 -8px; }
+  .initiative-item:hover { background: var(--accent-glow); }
+  .initiative-item:last-child { border-bottom: none; }
+  .initiative-header { display: flex; justify-content: space-between; align-items: center; }
+  .initiative-name { font-size: 0.84rem; font-weight: 600; }
+  .initiative-deadline { font-size: 0.72rem; color: var(--text-dim); background: var(--surface2); padding: 2px 8px; border-radius: 6px; }
+  .initiative-desc { font-size: 0.76rem; color: var(--text-dim); margin-top: 4px; }
+
+  /* ── Modal ─────────────────────── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6); z-index: 200;
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; width: 90%; max-width: 560px;
+    max-height: 80vh; overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .modal-top {
+    padding: 18px 22px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .modal-top h3 { font-size: 1rem; font-weight: 700; }
+  .modal-close {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text-dim); font-size: 1.1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, color 0.15s;
+  }
+  .modal-close:hover { background: var(--red); color: white; border-color: var(--red); }
+  .modal-content { padding: 20px 22px; font-size: 0.86rem; line-height: 1.65; }
+  .modal-content .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(45,49,66,0.3); }
+  .modal-content .detail-label { color: var(--text-dim); font-weight: 500; }
+  .modal-content .detail-value { font-weight: 600; }
+  .modal-content .detail-row:last-child { border-bottom: none; }
+  .modal-tag { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.74rem; font-weight: 600; margin-right: 6px; margin-bottom: 4px; }
+
+  /* ── Briefing Section ─────────────────── */
+  .briefing-card { background: var(--surface2); border-radius: 12px; padding: 18px; margin-bottom: 14px; border-left: 3px solid var(--accent); }
+  .briefing-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+  .briefing-text { font-size: 0.82rem; color: var(--text-dim); line-height: 1.6; }
+
+  /* ── Priority Tasks ─────────────────── */
+  .task-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 0.84rem; }
+  .task-check { width: 18px; height: 18px; border-radius: 5px; border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+  .task-check.done { background: var(--green); border-color: var(--green); color: white; font-size: 0.7rem; }
+  .task-text { flex: 1; }
+  .task-text.done-text { text-decoration: line-through; color: var(--text-dim); }
+  .task-priority-tag { font-size: 0.65rem; padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+
+  /* ── Footer ─────────────────────── */
+  .footer { text-align: center; padding: 18px; color: var(--text-dim); font-size: 0.73rem; border-top: 1px solid var(--border); margin-top: 8px; }
+
+  /* ── Toast ─────────────────────── */
+  .toast {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--surface); border: 1px solid var(--accent);
+    border-radius: 12px; padding: 14px 20px;
+    font-size: 0.84rem; z-index: 300;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    transform: translateY(100px); opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── Review Page ─────────────────────── */
+  .review-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .review-card:hover { border-color: var(--accent); }
+  .review-card-header {
+    padding: 14px 18px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .review-card-title { font-size: 0.88rem; font-weight: 700; word-break: break-all; flex: 1; }
+  .review-card-actions { display: flex; gap: 8px; flex-shrink: 0; }
+  .review-btn {
+    padding: 7px 18px; border-radius: 8px; border: none; font-size: 0.78rem; font-weight: 700;
+    cursor: pointer; transition: transform 0.15s, opacity 0.15s; letter-spacing: 0.04em;
+  }
+  .review-btn:hover { transform: scale(1.05); }
+  .review-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .btn-approve { background: var(--green); color: white; }
+  .btn-reject { background: var(--red); color: white; }
+  .btn-toggle { background: var(--surface2); color: var(--text-dim); border: 1px solid var(--border); }
+  .review-card-body {
+    padding: 14px 18px; font-size: 0.82rem; line-height: 1.7; color: var(--text-dim);
+    max-height: 300px; overflow-y: auto; white-space: pre-wrap; font-family: 'Cascadia Code', 'Fira Code', monospace;
+    display: none;
+  }
+  .review-card-body.open { display: block; }
+  .review-done {
+    padding: 14px 18px; text-align: center; font-size: 0.88rem; font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+  <div class="logo-sm" onclick="navTo('overview')">🤖</div>
+  <button class="nav-btn active" data-page="overview" onclick="navTo('overview')">
+    <span class="nav-icon">📊</span><span class="nav-label">Overview</span>
+  </button>
+  <button class="nav-btn" data-page="watchers" onclick="navTo('watchers')">
+    <span class="nav-icon">📡</span><span class="nav-label">Watchers</span>
+  </button>
+  <button class="nav-btn" data-page="revenue" onclick="navTo('revenue')">
+    <span class="nav-icon">💰</span><span class="nav-label">Revenue</span>
+  </button>
+  <button class="nav-btn" data-page="activity" onclick="navTo('activity')">
+    <span class="nav-icon">📋</span><span class="nav-label">Activity</span>
+  </button>
+  <button class="nav-btn" data-page="clients" onclick="navTo('clients')">
+    <span class="nav-icon">👥</span><span class="nav-label">Clients</span>
+  </button>
+  <button class="nav-btn" data-page="briefing" onclick="navTo('briefing')">
+    <span class="nav-icon">📰</span><span class="nav-label">Briefing</span>
+  </button>
+  <button class="nav-btn" data-page="tasks" onclick="navTo('tasks')">
+    <span class="nav-icon">✅</span><span class="nav-label">Tasks</span>
+  </button>
+  <button class="nav-btn" data-page="review" onclick="navTo('review')" style="margin-top:auto;">
+    <span class="nav-icon">🔍</span><span class="nav-label">Review</span>
+  </button>
+</nav>
+
+<div class="main">
+
+<!-- Header -->
+<div class="header">
+  <div class="header-left">
+    <h1>AI Employee <span>Dashboard</span></h1>
+    <span class="badge badge-prod">PRODUCTION</span>
+  </div>
+  <div class="header-right">
+    <span id="wsStatus" style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);">OFFLINE</span>
+    <div class="pulse-dot"></div>
+    <span id="liveClock"></span>
+    <div class="meta-text">Uptime: <strong>31m 46s</strong></div>
+  </div>
+</div>
+
+<!-- ═══════════════ OVERVIEW PAGE ═══════════════ -->
+<div class="section active" id="page-overview">
+
+  <div class="health-banner" onclick="showModal('health')">
+    <span class="health-icon">✅</span>
+    <div><strong>System Healthy</strong> — All 4 watchers operational. Click for details.</div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-card" onclick="navTo('activity')">
+      <div class="icon" style="background:var(--blue-bg);color:var(--blue);">📁</div>
+      <div class="value" data-count="39">0</div>
+      <div class="label">Total Vault Files</div>
+      <span class="trend trend-up">+5 this week</span>
+    </div>
+    <div class="stat-card" onclick="showModal('pending')">
+      <div class="icon" style="background:rgba(234,179,8,0.1);color:var(--yellow);">⏳</div>
+      <div class="value" data-count="23">0</div>
+      <div class="label">Pending Actions</div>
+      <span class="trend trend-warn">needs review</span>
+    </div>
+    <div class="stat-card" onclick="navTo('activity')">
+      <div class="icon" style="background:var(--green-bg);color:var(--green);">✅</div>
+      <div class="value" data-count="12">0</div>
+      <div class="label">Completed</div>
+      <span class="trend trend-up">+8 this week</span>
+    </div>
+    <div class="stat-card" onclick="showModal('emails')">
+      <div class="icon" style="background:rgba(108,99,255,0.12);color:var(--accent);">📧</div>
+      <div class="value" data-count="48">0</div>
+      <div class="label">Emails Processed</div>
+      <span class="trend trend-up">7 days</span>
+    </div>
+    <div class="stat-card" onclick="showModal('plans')">
+      <div class="icon" style="background:rgba(6,182,212,0.1);color:var(--cyan);">📝</div>
+      <div class="value" data-count="2">0</div>
+      <div class="label">Active Plans</div>
+    </div>
+    <div class="stat-card" onclick="showModal('actions')">
+      <div class="icon" style="background:rgba(168,85,247,0.1);color:var(--purple);">💬</div>
+      <div class="value" data-count="67">0</div>
+      <div class="label">Total Actions (7d)</div>
+      <span class="trend trend-up">active</span>
+    </div>
+  </div>
+
+  <!-- Pipeline Flow -->
+  <div class="panel" style="margin-bottom:22px;">
+    <div class="panel-header">
+      <h2>🔄 HITL Workflow Pipeline</h2>
+      <span style="font-size:0.74rem;color:var(--text-dim);">Click any stage for details</span>
+    </div>
+    <div class="panel-body">
+      <div class="flow-container">
+        <div class="flow-node" onclick="showModal('flow-inbox')">
+          <div class="flow-count">0</div>
+          <div class="flow-label">Inbox</div>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node" onclick="showModal('flow-needs')">
+          <div class="flow-count" style="color:var(--yellow);">13</div>
+          <div class="flow-label">Needs Action</div>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node" onclick="showModal('plans')">
+          <div class="flow-count" style="color:var(--cyan);">2</div>
+          <div class="flow-label">Plans</div>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node" onclick="showModal('flow-pending')">
+          <div class="flow-count" style="color:var(--purple);">10</div>
+          <div class="flow-label">Pending</div>
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node" onclick="navTo('activity')">
+          <div class="flow-count" style="color:var(--green);">12</div>
+          <div class="flow-label">Done</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:14px;font-size:0.74rem;color:var(--text-dim);line-height:1.5;">
+        <strong>Perception</strong> (Watchers) → <strong>Reasoning</strong> (AI Plans) → <strong>Action</strong> (Human Approved)
+      </div>
+    </div>
+  </div>
+
+  <!-- Mini Revenue + Mini Activity -->
+  <div class="grid-2">
+    <div class="panel" style="cursor:pointer;" onclick="navTo('revenue')">
+      <div class="panel-header">
+        <h2>💰 Revenue</h2>
+        <span style="font-size:0.76rem;color:var(--green);font-weight:700;">$5,450 / $8,000</span>
+      </div>
+      <div class="panel-body">
+        <div class="revenue-bar"><div class="revenue-fill" data-width="68">68%</div></div>
+        <div style="text-align:center;margin-top:8px;font-size:0.74rem;color:var(--text-dim);">Click for full revenue details →</div>
+      </div>
+    </div>
+    <div class="panel" style="cursor:pointer;" onclick="navTo('watchers')">
+      <div class="panel-header">
+        <h2>📡 Watchers</h2>
+        <span style="font-size:0.74rem;color:var(--green);font-weight:600;">4/4 Online</span>
+      </div>
+      <div class="panel-body" style="padding:0;">
+        <table>
+          <tbody>
+            <tr onclick="showModal('watcher-gmail')"><td>📧 Gmail</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td></tr>
+            <tr onclick="showModal('watcher-vault')"><td>📂 VaultAction</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td></tr>
+            <tr onclick="showModal('watcher-whatsapp')"><td>💬 WhatsApp</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td></tr>
+            <tr onclick="showModal('watcher-linkedin')"><td>💼 LinkedIn</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="comm-grid">
+    <div class="comm-item" onclick="showModal('emails')"><div class="comm-value">48</div><div class="comm-label">📧 Emails Processed</div></div>
+    <div class="comm-item" onclick="showModal('whatsapp-stats')"><div class="comm-value">11</div><div class="comm-label">💬 WhatsApp Flagged</div></div>
+    <div class="comm-item" onclick="showModal('linkedin-stats')"><div class="comm-value">7</div><div class="comm-label">💼 LinkedIn Flagged</div></div>
+    <div class="comm-item" onclick="showModal('social-stats')"><div class="comm-value">1</div><div class="comm-label">📝 Social Posts</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════ WATCHERS PAGE ═══════════════ -->
+<div class="section" id="page-watchers">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">📡 Watcher Status — All Systems</h2>
+  <div class="panel">
+    <div class="panel-body" style="padding:0;">
+      <table>
+        <thead><tr><th>Watcher</th><th>Status</th><th>Restarts</th><th>Last Error</th><th>Started</th></tr></thead>
+        <tbody>
+          <tr onclick="showModal('watcher-gmail')"><td>📧 Gmail</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td><td>0</td><td style="color:var(--text-dim);">—</td><td style="font-size:0.74rem;color:var(--text-dim);">2026-03-01 12:33:56Z</td></tr>
+          <tr onclick="showModal('watcher-vault')"><td>📂 VaultAction</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td><td>0</td><td style="color:var(--text-dim);">—</td><td style="font-size:0.74rem;color:var(--text-dim);">2026-03-01 12:33:56Z</td></tr>
+          <tr onclick="showModal('watcher-whatsapp')"><td>💬 WhatsApp</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td><td>1</td><td style="font-size:0.74rem;color:var(--yellow);">Timeout 60000ms exceeded</td><td style="font-size:0.74rem;color:var(--text-dim);">2026-03-01 12:37:24Z</td></tr>
+          <tr onclick="showModal('watcher-linkedin')"><td>💼 LinkedIn</td><td><span class="status-badge status-running"><span class="status-dot"></span>Running</span></td><td>0</td><td style="color:var(--text-dim);">—</td><td style="font-size:0.74rem;color:var(--text-dim);">2026-03-01 12:33:58Z</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div style="margin-top:18px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:12px;font-size:0.82rem;color:var(--text-dim);line-height:1.6;">
+    <strong style="color:var(--text);">How Watchers Work:</strong><br>
+    Each watcher monitors a communication channel 24/7. When new messages arrive, they're parsed, classified by priority, and placed into <strong style="color:var(--yellow);">Needs_Action</strong>. The AI Employee then creates an action plan in <strong style="color:var(--cyan);">Plans</strong>, and the response draft moves to <strong style="color:var(--purple);">Pending_Approval</strong> for your review.
+  </div>
+</div>
+
+<!-- ═══════════════ REVENUE PAGE ═══════════════ -->
+<div class="section" id="page-revenue">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">💰 Revenue & Financial Health</h2>
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-header"><h2>Monthly Revenue — March 2026</h2><span style="font-size:0.78rem;color:var(--green);font-weight:700;">68% of target</span></div>
+      <div class="panel-body">
+        <div style="display:flex;justify-content:space-between;margin-bottom:16px;">
+          <div><div style="font-size:0.74rem;color:var(--text-dim);">MTD Revenue</div><div style="font-size:2rem;font-weight:800;color:var(--green);">$5,450</div></div>
+          <div style="text-align:right;"><div style="font-size:0.74rem;color:var(--text-dim);">Monthly Target</div><div style="font-size:2rem;font-weight:800;">$8,000</div></div>
+        </div>
+        <div class="revenue-labels"><span>$0</span><span>Gap: $2,550</span><span>$8,000</span></div>
+        <div class="revenue-bar"><div class="revenue-fill" data-width="68">68%</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>🎯 Q1 2026 OKRs</h2></div>
+      <div class="panel-body">
+        <div class="okr-item"><div class="okr-header"><span class="okr-title">Monthly Recurring Revenue</span><span class="okr-pct">68%</span></div><div class="okr-bar"><div class="okr-fill" data-width="68"></div></div><div style="font-size:0.72rem;color:var(--text-dim);margin-top:4px;">$5,450 / $8,000</div></div>
+        <div class="okr-item"><div class="okr-header"><span class="okr-title">New Clients Acquired</span><span class="okr-pct">60%</span></div><div class="okr-bar"><div class="okr-fill" data-width="60"></div></div><div style="font-size:0.72rem;color:var(--text-dim);margin-top:4px;">3 / 5 clients</div></div>
+        <div class="okr-item"><div class="okr-header"><span class="okr-title">AI Employee MVP Launch</span><span class="okr-pct">90%</span></div><div class="okr-bar"><div class="okr-fill" data-width="90" style="background:linear-gradient(90deg,var(--green),var(--cyan));"></div></div><div style="font-size:0.72rem;color:var(--text-dim);margin-top:4px;">Gold Tier — nearly complete</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-header"><h2>📊 Client Revenue Breakdown</h2></div>
+    <div class="panel-body" style="padding:0;">
+      <table>
+        <thead><tr><th>Client</th><th>Company</th><th>Type</th><th>Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr onclick="showModal('client-sarah')"><td>Sarah Chen</td><td>CloudBridge</td><td>Retainer</td><td style="font-weight:700;color:var(--green);">$2,200/mo</td><td><span class="status-badge status-running"><span class="status-dot"></span>Active</span></td></tr>
+          <tr onclick="showModal('client-james')"><td>James Okoro</td><td>Meridian Labs</td><td>Fixed Price</td><td style="font-weight:700;color:var(--cyan);">$3,200</td><td><span style="font-size:0.76rem;color:var(--yellow);">Starting</span></td></tr>
+          <tr onclick="showModal('client-amira')"><td>Amira Patel</td><td>VertexAI</td><td>Proposal</td><td style="font-weight:700;color:var(--text-dim);">TBD</td><td><span style="font-size:0.76rem;color:var(--blue);">Prospect</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ACTIVITY PAGE ═══════════════ -->
+<div class="section" id="page-activity">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">📋 Recent Activity — Last 7 Days</h2>
+  <div class="panel">
+    <div class="panel-body">
+      <div class="activity-item" onclick="showModal('act-1')"><div class="activity-icon" style="background:var(--blue-bg);color:var(--blue);">💼</div><div class="activity-text">LinkedIn reply to Nousheen Adeel — approved and sent</div><div class="activity-time">Mar 1</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-2')"><div class="activity-icon" style="background:var(--blue-bg);color:var(--blue);">📝</div><div class="activity-text">LinkedIn post published — "Building AI Agents"</div><div class="activity-time">Feb 28</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-3')"><div class="activity-icon" style="background:var(--blue-bg);color:var(--blue);">💼</div><div class="activity-text">LinkedIn reply to Nimra Naz — connection follow-up</div><div class="activity-time">Feb 28</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-4')"><div class="activity-icon" style="background:var(--green-bg);color:var(--green);">💬</div><div class="activity-text">WhatsApp reply processed — auto-drafted response</div><div class="activity-time">Feb 28</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-5')"><div class="activity-icon" style="background:var(--blue-bg);color:var(--blue);">💼</div><div class="activity-text">LinkedIn reply to Nimra Naz — initial message</div><div class="activity-time">Feb 27</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-6')"><div class="activity-icon" style="background:rgba(168,85,247,0.1);color:var(--purple);">🔍</div><div class="activity-text">Query for class — reply drafted and approved</div><div class="activity-time">Feb 27</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-7')"><div class="activity-icon" style="background:rgba(108,99,255,0.12);color:var(--accent);">📧</div><div class="activity-text">Email checking — 2 replies auto-drafted</div><div class="activity-time">Feb 27</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-8')"><div class="activity-icon" style="background:var(--green-bg);color:var(--green);">💰</div><div class="activity-text">Odoo invoice generated — E2E test passed</div><div class="activity-time">Feb 22</div><span class="activity-arrow">→</span></div>
+      <div class="activity-item" onclick="showModal('act-9')"><div class="activity-icon" style="background:var(--blue-bg);color:var(--blue);">📝</div><div class="activity-text">LinkedIn post published — thought leadership</div><div class="activity-time">Feb 20</div><span class="activity-arrow">→</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CLIENTS PAGE ═══════════════ -->
+<div class="section" id="page-clients">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">👥 Clients & Stakeholders</h2>
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-header"><h2>Active Clients</h2></div>
+      <div class="panel-body">
+        <div class="client-item" onclick="showModal('client-sarah')"><div class="client-avatar" style="background:rgba(239,68,68,0.15);color:var(--red);">SC</div><div class="client-info"><div class="client-name">Sarah Chen</div><div class="client-company">CloudBridge — AI Consulting Retainer ($2,200/mo)</div></div><span class="client-priority priority-p0">P0</span></div>
+        <div class="client-item" onclick="showModal('client-james')"><div class="client-avatar" style="background:rgba(234,179,8,0.15);color:var(--yellow);">JO</div><div class="client-info"><div class="client-name">James Okoro</div><div class="client-company">Meridian Labs — API Project ($3,200 fixed)</div></div><span class="client-priority priority-p1">P1</span></div>
+        <div class="client-item" onclick="showModal('client-amira')"><div class="client-avatar" style="background:var(--blue-bg);color:var(--blue);">AP</div><div class="client-info"><div class="client-name">Amira Patel</div><div class="client-company">VertexAI — ML Ops (Prospective)</div></div><span class="client-priority priority-p2">P2</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>🚀 Key Initiatives</h2></div>
+      <div class="panel-body">
+        <div class="initiative-item" onclick="showModal('init-1')"><div class="initiative-header"><span class="initiative-name">AI Employee Hackathon Launch</span><span class="initiative-deadline">Mar 15</span></div><div class="initiative-desc">Gold Tier MVP — 90% complete. 7 watchers, HITL pipeline, CEO Briefing.</div></div>
+        <div class="initiative-item" onclick="showModal('init-2')"><div class="initiative-header"><span class="initiative-name">Meridian Labs API Project</span><span class="initiative-deadline">Mar 31</span></div><div class="initiative-desc">FastAPI + PostgreSQL. $3,200 fixed-price. Awaiting spec approval.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ BRIEFING PAGE ═══════════════ -->
+<div class="section" id="page-briefing">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">📰 CEO Briefing — Latest</h2>
+  <div class="briefing-card">
+    <div class="briefing-title">Executive Summary — Week of Feb 24 – Mar 2, 2026</div>
+    <div class="briefing-text">
+      Revenue MTD: <strong style="color:var(--green);">$5,450</strong> (68% of $8,000 target). 8 tasks completed. 23 items pending. 48 emails processed, 11 WhatsApp messages flagged, 7 LinkedIn messages flagged. 10 bottlenecks detected — oldest item waiting 10 days.
+    </div>
+  </div>
+  <div class="briefing-card">
+    <div class="briefing-title">Bottlenecks & Delays</div>
+    <div class="briefing-text">
+      <strong style="color:var(--yellow);">10 items</strong> waiting for human review in Pending_Approval. Oldest: "Post Content" — <strong>10 days</strong>. 9x email items pending batch resolution. Recommendation: review and clear pending queue this week.
+    </div>
+  </div>
+  <div class="briefing-card">
+    <div class="briefing-title">Proactive Suggestions</div>
+    <div class="briefing-text">
+      1. Review 'Post Content' — waiting 10 days in Pending_Approval.<br>
+      2. Upcoming deadline: AI Employee Hackathon Launch — Mar 15.<br>
+      3. Follow up on CloudBridge March invoice ($2,200).<br>
+      4. High volume of pending email items — consider batching resolution.
+    </div>
+  </div>
+  <div class="briefing-card">
+    <div class="briefing-title">Communication Summary</div>
+    <div class="briefing-text">
+      📧 <strong>48</strong> emails processed &nbsp;|&nbsp; 💬 <strong>11</strong> WhatsApp flagged &nbsp;|&nbsp; 💼 <strong>7</strong> LinkedIn flagged &nbsp;|&nbsp; 📝 <strong>1</strong> social post published<br>
+      Total actions logged: <strong>67</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TASKS PAGE ═══════════════ -->
+<div class="section" id="page-tasks">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">✅ Priority Tasks — This Week</h2>
+  <div class="panel" style="margin-bottom:18px;">
+    <div class="panel-header"><h2>P0 — Critical (This Week)</h2></div>
+    <div class="panel-body">
+      <div class="task-item"><div class="task-check done" onclick="this.classList.toggle('done')">✓</div><div class="task-text done-text">Finalize AI Employee Gold Tier for hackathon</div><span class="task-priority-tag" style="background:var(--green-bg);color:var(--green);">Done</span></div>
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Send Meridian Labs API project proposal</div><span class="task-priority-tag" style="background:rgba(239,68,68,0.15);color:var(--red);">P0</span></div>
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Follow up on CloudBridge March invoice ($2,200)</div><span class="task-priority-tag" style="background:rgba(239,68,68,0.15);color:var(--red);">P0</span></div>
+    </div>
+  </div>
+  <div class="panel" style="margin-bottom:18px;">
+    <div class="panel-header"><h2>P1 — High (This Month)</h2></div>
+    <div class="panel-body">
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Launch AI Employee demo for 3 prospective clients</div><span class="task-priority-tag" style="background:rgba(234,179,8,0.15);color:var(--yellow);">P1</span></div>
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Complete Meridian Labs API integration (Phase 1)</div><span class="task-priority-tag" style="background:rgba(234,179,8,0.15);color:var(--yellow);">P1</span></div>
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Publish 4 LinkedIn thought-leadership posts</div><span class="task-priority-tag" style="background:rgba(234,179,8,0.15);color:var(--yellow);">P1</span></div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-header"><h2>P2 — Medium (This Quarter)</h2></div>
+    <div class="panel-body">
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Build case study from CloudBridge engagement</div><span class="task-priority-tag" style="background:var(--blue-bg);color:var(--blue);">P2</span></div>
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Set up automated lead-gen pipeline via LinkedIn</div><span class="task-priority-tag" style="background:var(--blue-bg);color:var(--blue);">P2</span></div>
+      <div class="task-item"><div class="task-check" onclick="toggleTask(this)"></div><div class="task-text">Create NexaTech Solutions website landing page</div><span class="task-priority-tag" style="background:var(--blue-bg);color:var(--blue);">P2</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ REVIEW PAGE ═══════════════ -->
+<div class="section" id="page-review">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">🔍 Review & Approve — Pending Items</h2>
+  <div id="reviewList" style="display:flex;flex-direction:column;gap:14px;">
+    <div style="text-align:center;padding:40px;color:var(--text-dim);">Loading pending items...</div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<!-- ═══════════════ MODAL ═══════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-top">
+      <h3 id="modalTitle">Details</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Footer -->
+<div class="main">
+<div class="footer">
+  AI Employee v1.0 — Built by <strong>Fatima Asif</strong> | NexaTech Solutions<br>
+  Powered by Claude Code + Obsidian Vault + MCP Servers<br>
+  <span style="color:var(--accent);">All data is demo/fictional — no real credentials or personal data included</span>
+</div>
+</div>
+
+<script>
+// ── Navigation ──────────────────────────
+function navTo(page) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById('page-' + page);
+  if (el) el.classList.add('active');
+  const btn = document.querySelector(`.nav-btn[data-page="${page}"]`);
+  if (btn) btn.classList.add('active');
+  animateBars();
+  animateCounters();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── Live Clock ──────────────────────────
+function updateClock() {
+  const now = new Date();
+  document.getElementById('liveClock').textContent = now.toUTCString().slice(17, 25) + ' UTC';
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ── Animated Counters ──────────────────
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    let current = 0;
+    const step = Math.max(1, Math.floor(target / 30));
+    const interval = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(interval); }
+      el.textContent = current;
+    }, 30);
+  });
+}
+
+// ── Animated Bars ───────────────────────
+function animateBars() {
+  setTimeout(() => {
+    document.querySelectorAll('.revenue-fill[data-width]').forEach(el => {
+      el.style.width = el.dataset.width + '%';
+    });
+    document.querySelectorAll('.okr-fill[data-width]').forEach(el => {
+      el.style.width = el.dataset.width + '%';
+    });
+  }, 200);
+}
+
+// ── Task Toggle ─────────────────────────
+function toggleTask(el) {
+  el.classList.toggle('done');
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  const textEl = el.nextElementSibling;
+  textEl.classList.toggle('done-text');
+  if (el.classList.contains('done')) showToast('Task marked as complete!');
+}
+
+// ── Toast ────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── Modal System ─────────────────────────
+const MODALS = {
+  'health': {
+    title: '✅ System Health Details',
+    html: `<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">All Systems Operational</span></div>
+    <div class="detail-row"><span class="detail-label">Watchers Online</span><span class="detail-value">4 / 4</span></div>
+    <div class="detail-row"><span class="detail-label">Errors (24h)</span><span class="detail-value">0</span></div>
+    <div class="detail-row"><span class="detail-label">Uptime</span><span class="detail-value">31m 46s</span></div>
+    <div class="detail-row"><span class="detail-label">Last Restart</span><span class="detail-value">WhatsApp — 1 restart (timeout recovered)</span></div>
+    <div style="margin-top:14px;padding:12px;background:var(--green-bg);border-radius:8px;font-size:0.82rem;color:var(--green);">All communication channels are being monitored in real-time. No intervention needed.</div>`
+  },
+  'pending': {
+    title: '⏳ Pending Actions Breakdown',
+    html: `<div class="detail-row"><span class="detail-label">Needs_Action</span><span class="detail-value" style="color:var(--yellow);">13 items</span></div>
+    <div class="detail-row"><span class="detail-label">Pending_Approval</span><span class="detail-value" style="color:var(--purple);">10 items</span></div>
+    <div class="detail-row"><span class="detail-label">Total Pending</span><span class="detail-value">23 items</span></div>
+    <div class="detail-row"><span class="detail-label">Oldest Item</span><span class="detail-value" style="color:var(--red);">10 days (Post Content)</span></div>
+    <div style="margin-top:14px;font-size:0.82rem;color:var(--text-dim);">
+    <strong style="color:var(--text);">Top pending items:</strong><br>
+    • Email from AI Employee — HIGH priority<br>
+    • Test Email — HIGH priority<br>
+    • LinkedIn Nousheen Adeel — HIGH priority<br>
+    • 6x social post drafts awaiting review<br>
+    • 4x LinkedIn notifications
+    </div>`
+  },
+  'emails': {
+    title: '📧 Email Processing Details',
+    html: `<div class="detail-row"><span class="detail-label">Emails Processed (7d)</span><span class="detail-value">48</span></div>
+    <div class="detail-row"><span class="detail-label">Auto-Drafted Replies</span><span class="detail-value">12</span></div>
+    <div class="detail-row"><span class="detail-label">Approved & Sent</span><span class="detail-value" style="color:var(--green);">8</span></div>
+    <div class="detail-row"><span class="detail-label">Pending Review</span><span class="detail-value" style="color:var(--yellow);">4</span></div>
+    <div class="detail-row"><span class="detail-label">Watcher</span><span class="detail-value">Gmail Watcher</span></div>
+    <div style="margin-top:14px;font-size:0.82rem;color:var(--text-dim);">Gmail Watcher scans for new emails every 60 seconds. High-priority emails are flagged immediately. All replies require human approval (HITL).</div>`
+  },
+  'plans': {
+    title: '📝 Active Plans',
+    html: `<div style="margin-bottom:14px;padding:12px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--purple);cursor:pointer;" onclick="showToast('Plan: Email Response to Client')">
+      <strong>PLAN: Email Response to Client</strong><br>
+      <span style="font-size:0.78rem;color:var(--text-dim);">Status: <span style="color:var(--yellow);">Pending Approval</span> | Priority: HIGH</span><br>
+      <span style="font-size:0.78rem;color:var(--text-dim);">AI drafted a professional reply. Awaiting human review.</span>
+    </div>
+    <div style="padding:12px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--cyan);cursor:pointer;" onclick="showToast('Plan: Weekly Content Schedule')">
+      <strong>PLAN: Weekly Content Schedule</strong><br>
+      <span style="font-size:0.78rem;color:var(--text-dim);">Status: <span style="color:var(--cyan);">In Progress</span> | Priority: MEDIUM</span><br>
+      <span style="font-size:0.78rem;color:var(--text-dim);">5-day content calendar (Mon-Fri). 2/5 posts drafted.</span>
+    </div>`
+  },
+  'actions': {
+    title: '💬 Total Actions (7 Days)',
+    html: `<div class="detail-row"><span class="detail-label">Email Actions</span><span class="detail-value">48</span></div>
+    <div class="detail-row"><span class="detail-label">WhatsApp Actions</span><span class="detail-value">11</span></div>
+    <div class="detail-row"><span class="detail-label">LinkedIn Actions</span><span class="detail-value">7</span></div>
+    <div class="detail-row"><span class="detail-label">Social Posts</span><span class="detail-value">1</span></div>
+    <div class="detail-row"><span class="detail-label" style="font-weight:700;color:var(--text);">Total</span><span class="detail-value" style="font-weight:700;color:var(--accent);">67 actions</span></div>
+    <div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">All actions are logged in vault/Logs/actions/ with timestamps and full audit trail.</div>`
+  },
+  'flow-inbox': { title: '📥 Inbox', html: '<div style="text-align:center;padding:20px;color:var(--text-dim);">Inbox is empty — all incoming items have been triaged.<br><br><span style="color:var(--green);">✅ No unprocessed items</span></div>' },
+  'flow-needs': { title: '⚡ Needs Action — 13 Items', html: '<div style="font-size:0.82rem;color:var(--text-dim);line-height:1.7;">Items detected by watchers that need AI processing:<br><br>• 9x email notifications<br>• 2x LinkedIn messages<br>• 1x Facebook notification<br>• 1x Security alert<br><br>The AI Employee will create action plans for high-priority items and move them through the pipeline.</div>' },
+  'flow-pending': { title: '🔒 Pending Approval — 10 Items', html: '<div style="font-size:0.82rem;color:var(--text-dim);line-height:1.7;">AI-drafted responses waiting for your approval:<br><br>• 6x social media post drafts<br>• 2x email reply drafts<br>• 1x WhatsApp reply draft<br>• 1x LinkedIn reply draft<br><br><strong style="color:var(--text);">Action needed:</strong> Review in Obsidian vault → Pending_Approval/ folder. Move to Approved/ or Rejected/.</div>' },
+  'whatsapp-stats': { title: '💬 WhatsApp Activity', html: '<div class="detail-row"><span class="detail-label">Messages Flagged</span><span class="detail-value">11</span></div><div class="detail-row"><span class="detail-label">Replies Drafted</span><span class="detail-value">3</span></div><div class="detail-row"><span class="detail-label">Replies Sent</span><span class="detail-value" style="color:var(--green);">1</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">WhatsApp Watcher uses Playwright for browser automation. Messages are parsed and priority-classified automatically.</div>' },
+  'linkedin-stats': { title: '💼 LinkedIn Activity', html: '<div class="detail-row"><span class="detail-label">Messages Flagged</span><span class="detail-value">7</span></div><div class="detail-row"><span class="detail-label">Replies Drafted</span><span class="detail-value">5</span></div><div class="detail-row"><span class="detail-label">Replies Sent</span><span class="detail-value" style="color:var(--green);">4</span></div><div class="detail-row"><span class="detail-label">Posts Published</span><span class="detail-value">2</span></div>' },
+  'social-stats': { title: '📝 Social Media Posts', html: '<div class="detail-row"><span class="detail-label">Posts Published (7d)</span><span class="detail-value">1</span></div><div class="detail-row"><span class="detail-label">Drafts Pending</span><span class="detail-value" style="color:var(--yellow);">6</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Content is generated from the Content Strategy topic rotation. All posts require approval before publishing.</div>' },
+  'watcher-gmail': { title: '📧 Gmail Watcher', html: '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Running</span></div><div class="detail-row"><span class="detail-label">Restarts</span><span class="detail-value">0</span></div><div class="detail-row"><span class="detail-label">Started</span><span class="detail-value">2026-03-01 12:33:56Z</span></div><div class="detail-row"><span class="detail-label">Poll Interval</span><span class="detail-value">60 seconds</span></div><div class="detail-row"><span class="detail-label">Method</span><span class="detail-value">IMAP + OAuth2</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Monitors inbox for new emails. Parses subject, sender, and body. Classifies priority using keyword rules from Company Handbook.</div>' },
+  'watcher-vault': { title: '📂 VaultAction Watcher', html: '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Running</span></div><div class="detail-row"><span class="detail-label">Restarts</span><span class="detail-value">0</span></div><div class="detail-row"><span class="detail-label">Started</span><span class="detail-value">2026-03-01 12:33:56Z</span></div><div class="detail-row"><span class="detail-label">Watches</span><span class="detail-value">Approved/ folder</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Monitors the Approved/ folder for human-approved actions. When a file is moved here, the AI Employee executes the action (send email, publish post, etc.) and moves the file to Done/.</div>' },
+  'watcher-whatsapp': { title: '💬 WhatsApp Watcher', html: '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Running</span></div><div class="detail-row"><span class="detail-label">Restarts</span><span class="detail-value" style="color:var(--yellow);">1</span></div><div class="detail-row"><span class="detail-label">Last Error</span><span class="detail-value" style="color:var(--yellow);font-size:0.78rem;">Timeout 60000ms exceeded (recovered)</span></div><div class="detail-row"><span class="detail-label">Started</span><span class="detail-value">2026-03-01 12:37:24Z</span></div><div class="detail-row"><span class="detail-label">Method</span><span class="detail-value">Playwright Browser Automation</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Uses headless browser to monitor WhatsApp Web. Auto-recovered from timeout error after 1 restart.</div>' },
+  'watcher-linkedin': { title: '💼 LinkedIn Watcher', html: '<div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Running</span></div><div class="detail-row"><span class="detail-label">Restarts</span><span class="detail-value">0</span></div><div class="detail-row"><span class="detail-label">Started</span><span class="detail-value">2026-03-01 12:33:58Z</span></div><div class="detail-row"><span class="detail-label">Method</span><span class="detail-value">Playwright Browser Automation</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Monitors LinkedIn messages and notifications. Flags high-priority connections and client messages for immediate response.</div>' },
+  'client-sarah': { title: '👤 Sarah Chen — CloudBridge', html: '<div class="detail-row"><span class="detail-label">Company</span><span class="detail-value">CloudBridge</span></div><div class="detail-row"><span class="detail-label">Relationship</span><span class="detail-value">Active Client — AI Consulting</span></div><div class="detail-row"><span class="detail-label">Contract</span><span class="detail-value" style="color:var(--green);">$2,200/month retainer</span></div><div class="detail-row"><span class="detail-label">Priority</span><span class="detail-value" style="color:var(--red);">P0 — Critical</span></div><div class="detail-row"><span class="detail-label">Next Action</span><span class="detail-value">Follow up March invoice</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Retainer auto-renews monthly. Invoice sent on 1st. Active engagement on AI agent development.</div>' },
+  'client-james': { title: '👤 James Okoro — Meridian Labs', html: '<div class="detail-row"><span class="detail-label">Company</span><span class="detail-value">Meridian Labs</span></div><div class="detail-row"><span class="detail-label">Relationship</span><span class="detail-value">New Client — API Project</span></div><div class="detail-row"><span class="detail-label">Contract</span><span class="detail-value" style="color:var(--cyan);">$3,200 fixed price</span></div><div class="detail-row"><span class="detail-label">Priority</span><span class="detail-value" style="color:var(--yellow);">P1 — High</span></div><div class="detail-row"><span class="detail-label">Deadline</span><span class="detail-value">March 31, 2026</span></div><div class="detail-row"><span class="detail-label">Stack</span><span class="detail-value">FastAPI + PostgreSQL + AWS ECS</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">50% upfront payment expected by March 10. API spec pending approval.</div>' },
+  'client-amira': { title: '👤 Amira Patel — VertexAI', html: '<div class="detail-row"><span class="detail-label">Company</span><span class="detail-value">VertexAI</span></div><div class="detail-row"><span class="detail-label">Relationship</span><span class="detail-value">Prospective Client — ML Ops</span></div><div class="detail-row"><span class="detail-label">Contract</span><span class="detail-value" style="color:var(--text-dim);">TBD (proposal stage)</span></div><div class="detail-row"><span class="detail-label">Priority</span><span class="detail-value" style="color:var(--blue);">P2 — Medium</span></div><div class="detail-row"><span class="detail-label">Next Action</span><span class="detail-value">Meeting scheduled Mar 12</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Prepare ML Ops consulting proposal before the meeting.</div>' },
+  'init-1': { title: '🚀 AI Employee Hackathon Launch', html: '<div class="detail-row"><span class="detail-label">Deadline</span><span class="detail-value">March 15, 2026</span></div><div class="detail-row"><span class="detail-label">Progress</span><span class="detail-value" style="color:var(--green);">90%</span></div><div class="detail-row"><span class="detail-label">Tier</span><span class="detail-value">Gold Tier</span></div><div style="margin-top:12px;font-size:0.82rem;line-height:1.6;"><strong style="color:var(--green);">✅ Completed:</strong><br>• 7 watchers operational<br>• HITL approval pipeline<br>• CEO Briefing generator<br>• Odoo financial integration<br><br><strong style="color:var(--yellow);">⏳ Remaining:</strong><br>• Polish Obsidian dashboard<br>• Final testing pass</div>' },
+  'init-2': { title: '🚀 Meridian Labs API Project', html: '<div class="detail-row"><span class="detail-label">Deadline</span><span class="detail-value">March 31, 2026</span></div><div class="detail-row"><span class="detail-label">Value</span><span class="detail-value" style="color:var(--cyan);">$3,200</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--yellow);">Not Started</span></div><div class="detail-row"><span class="detail-label">Stack</span><span class="detail-value">FastAPI + PostgreSQL + AWS ECS</span></div><div style="margin-top:12px;font-size:0.82rem;line-height:1.6;"><strong>Milestones:</strong><br>• API spec approval — by Mar 10<br>• Core endpoints deployed — by Mar 20<br>• Load testing (500 req/s) — by Mar 28</div>' },
+  'act-1': { title: '💼 LinkedIn Reply — Nousheen Adeel', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Mar 1, 2026</span></div><div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">LinkedIn Reply</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Completed</span></div><div class="detail-row"><span class="detail-label">Flow</span><span class="detail-value">Detected → Drafted → Approved → Sent → Done</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">AI Employee detected the LinkedIn message, drafted a professional reply, and after human approval, it was sent successfully.</div>' },
+  'act-2': { title: '📝 LinkedIn Post Published', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 28, 2026</span></div><div class="detail-row"><span class="detail-label">Topic</span><span class="detail-value">Building AI Agents</span></div><div class="detail-row"><span class="detail-label">Platform</span><span class="detail-value">LinkedIn</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Published</span></div>' },
+  'act-3': { title: '💼 LinkedIn Reply — Nimra Naz', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 28, 2026</span></div><div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">Connection Follow-up</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Completed</span></div>' },
+  'act-4': { title: '💬 WhatsApp Reply', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 28, 2026</span></div><div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">Auto-drafted Response</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Completed</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">WhatsApp message detected, response drafted by AI, approved by human, and sent.</div>' },
+  'act-5': { title: '💼 LinkedIn Reply — Nimra Naz (Initial)', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 27, 2026</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Completed</span></div>' },
+  'act-6': { title: '🔍 Query Reply', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 27, 2026</span></div><div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">Class Query — Reply Drafted & Approved</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Completed</span></div>' },
+  'act-7': { title: '📧 Email Checking', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 27, 2026</span></div><div class="detail-row"><span class="detail-label">Replies Drafted</span><span class="detail-value">2</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Completed</span></div>' },
+  'act-8': { title: '💰 Odoo Invoice — E2E Test', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 22, 2026</span></div><div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">Invoice Generation</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">E2E Test Passed</span></div><div style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);">Odoo MCP Server integration verified end-to-end. Invoice created, validated, and payment status tracked.</div>' },
+  'act-9': { title: '📝 LinkedIn Post — Thought Leadership', html: '<div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Feb 20, 2026</span></div><div class="detail-row"><span class="detail-label">Platform</span><span class="detail-value">LinkedIn</span></div><div class="detail-row"><span class="detail-label">Status</span><span class="detail-value" style="color:var(--green);">Published</span></div>' },
+};
+
+function showModal(id) {
+  const data = MODALS[id];
+  if (!data) return;
+  document.getElementById('modalTitle').textContent = data.title;
+  document.getElementById('modalContent').innerHTML = data.html;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Init
+animateCounters();
+setTimeout(animateBars, 300);
+
+// ── WebSocket Live Connection ─────────────
+(function() {
+  const WS_URL = 'ws://' + (location.host || 'localhost:8765') + '/ws';
+  const badge = document.getElementById('wsStatus');
+  let ws = null;
+  let reconnectTimer = null;
+
+  function setLive(live) {
+    if (live) {
+      badge.textContent = 'LIVE';
+      badge.style.background = 'rgba(34,197,94,0.15)';
+      badge.style.color = '#22c55e';
+      badge.style.borderColor = 'rgba(34,197,94,0.3)';
+    } else {
+      badge.textContent = 'OFFLINE';
+      badge.style.background = 'rgba(239,68,68,0.15)';
+      badge.style.color = '#ef4444';
+      badge.style.borderColor = 'rgba(239,68,68,0.3)';
+    }
+  }
+
+  function applyState(state) {
+    // Update stat card values
+    const vc = state.vault_counts || {};
+    const statCards = document.querySelectorAll('#page-overview .stat-card .value[data-count]');
+    const mapping = [
+      state.total_files,  // Total Vault Files
+      state.pending,      // Pending Actions
+      state.completed,    // Completed
+      (state.action_log_counts || {}).emails || 0,  // Emails Processed
+    ];
+    statCards.forEach(function(el, i) {
+      if (i < mapping.length && mapping[i] !== undefined) {
+        el.dataset.count = mapping[i];
+        el.textContent = mapping[i];
+      }
+    });
+
+    // Update HITL pipeline flow counts
+    const flowCounts = document.querySelectorAll('#page-overview .flow-count');
+    const flowValues = [
+      vc.Inbox || 0,
+      vc.Needs_Action || 0,
+      vc.Plans || 0,
+      vc.Pending_Approval || 0,
+      vc.Done || 0,
+    ];
+    flowCounts.forEach(function(el, i) {
+      if (i < flowValues.length) {
+        el.textContent = flowValues[i];
+      }
+    });
+
+    // Update comm grid values
+    const commValues = document.querySelectorAll('#page-overview .comm-item .comm-value');
+    const commData = [
+      (state.action_log_counts || {}).emails || 0,
+      (state.action_log_counts || {}).social || 0,
+    ];
+    if (commValues.length >= 1) commValues[0].textContent = commData[0];
+
+    // Update revenue bar if revenue data present
+    if (state.revenue && state.revenue.target > 0) {
+      var pct = Math.min(100, Math.round((state.revenue.mtd / state.revenue.target) * 100));
+      document.querySelectorAll('.revenue-fill[data-width]').forEach(function(el) {
+        el.dataset.width = pct;
+        el.style.width = pct + '%';
+        el.textContent = pct + '%';
+      });
+    }
+
+    // Update last_update timestamp display
+    if (state.last_update) {
+      var ts = new Date(state.last_update);
+      var timeStr = ts.toUTCString().slice(17, 25) + ' UTC';
+    }
+  }
+
+  function connect() {
+    if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
+    try {
+      ws = new WebSocket(WS_URL);
+    } catch(e) {
+      setLive(false);
+      scheduleReconnect();
+      return;
+    }
+
+    ws.onopen = function() {
+      setLive(true);
+    };
+
+    ws.onmessage = function(event) {
+      try {
+        var state = JSON.parse(event.data);
+        applyState(state);
+      } catch(e) { /* ignore parse errors */ }
+    };
+
+    ws.onclose = function() {
+      setLive(false);
+      scheduleReconnect();
+    };
+
+    ws.onerror = function() {
+      setLive(false);
+    };
+  }
+
+  function scheduleReconnect() {
+    if (!reconnectTimer) {
+      reconnectTimer = setTimeout(function() {
+        reconnectTimer = null;
+        connect();
+      }, 3000);
+    }
+  }
+
+  // Start connection
+  connect();
+})();
+
+// ── Review Page Logic ─────────────────────
+function loadPendingFiles() {
+  var container = document.getElementById('reviewList');
+  if (!container) return;
+  fetch('/api/pending')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var files = data.files || [];
+      if (files.length === 0) {
+        container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--green);font-size:1rem;font-weight:700;">All clear! No items pending review.</div>';
+        return;
+      }
+      container.innerHTML = '';
+      files.forEach(function(f, idx) {
+        var card = document.createElement('div');
+        card.className = 'review-card';
+        card.id = 'review-card-' + idx;
+
+        var icon = '📄';
+        var name = f.filename.toLowerCase();
+        if (name.includes('linkedin')) icon = '💼';
+        else if (name.includes('whatsapp')) icon = '💬';
+        else if (name.includes('email') || name.includes('reply')) icon = '📧';
+        else if (name.includes('twitter')) icon = '🐦';
+        else if (name.includes('facebook')) icon = '📘';
+        else if (name.includes('instagram')) icon = '📸';
+
+        card.innerHTML =
+          '<div class="review-card-header">' +
+            '<span class="review-card-title">' + icon + ' ' + f.filename + '</span>' +
+            '<div class="review-card-actions">' +
+              '<button class="review-btn btn-toggle" onclick="togglePreview(' + idx + ')">Preview</button>' +
+              '<button class="review-btn btn-approve" id="approve-' + idx + '" onclick="approveFile(\'' + f.filename.replace(/'/g, "\\'") + '\',' + idx + ')">Approve</button>' +
+              '<button class="review-btn btn-reject" id="reject-' + idx + '" onclick="rejectFile(\'' + f.filename.replace(/'/g, "\\'") + '\',' + idx + ')">Reject</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="review-card-body" id="preview-' + idx + '">' + escapeHtml(f.full_content) + '</div>';
+        container.appendChild(card);
+      });
+    })
+    .catch(function() {
+      container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--red);">Failed to load pending items. Is the server running?</div>';
+    });
+}
+
+function escapeHtml(text) {
+  var div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function togglePreview(idx) {
+  var body = document.getElementById('preview-' + idx);
+  if (body) body.classList.toggle('open');
+}
+
+function approveFile(filename, idx) {
+  var btn = document.getElementById('approve-' + idx);
+  if (btn) btn.disabled = true;
+  fetch('/api/approve', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({filename: filename})
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.status === 'approved') {
+      var card = document.getElementById('review-card-' + idx);
+      card.innerHTML = '<div class="review-done" style="color:var(--green);">✅ APPROVED — ' + filename + '</div>';
+      showToast('Approved: ' + filename);
+    } else {
+      showToast('Error: ' + (data.error || 'Unknown'));
+      if (btn) btn.disabled = false;
+    }
+  })
+  .catch(function() { showToast('Network error'); if (btn) btn.disabled = false; });
+}
+
+function rejectFile(filename, idx) {
+  var btn = document.getElementById('reject-' + idx);
+  if (btn) btn.disabled = true;
+  fetch('/api/reject', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({filename: filename})
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (data.status === 'rejected') {
+      var card = document.getElementById('review-card-' + idx);
+      card.innerHTML = '<div class="review-done" style="color:var(--red);">❌ REJECTED — ' + filename + '</div>';
+      showToast('Rejected: ' + filename);
+    } else {
+      showToast('Error: ' + (data.error || 'Unknown'));
+      if (btn) btn.disabled = false;
+    }
+  })
+  .catch(function() { showToast('Network error'); if (btn) btn.disabled = false; });
+}
+
+// Override navTo to load review items when navigating to review page
+var _origNavTo = navTo;
+navTo = function(page) {
+  _origNavTo(page);
+  if (page === 'review') loadPendingFiles();
+};
+</script>
+</body>
+</html>
