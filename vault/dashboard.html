@@ -323,6 +323,9 @@
   <button class="nav-btn" data-page="clients" onclick="navTo('clients')">
     <span class="nav-icon">👥</span><span class="nav-label">Clients</span>
   </button>
+  <button class="nav-btn" data-page="odoo" onclick="navTo('odoo')">
+    <span class="nav-icon">🏦</span><span class="nav-label">Odoo</span>
+  </button>
   <button class="nav-btn" data-page="briefing" onclick="navTo('briefing')">
     <span class="nav-icon">📰</span><span class="nav-label">Briefing</span>
   </button>
@@ -644,6 +647,128 @@
   </div>
 </div>
 
+<!-- ═══════════════ ODOO PAGE ═══════════════ -->
+<div class="section" id="page-odoo">
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">🏦 Odoo Accounting Dashboard</h2>
+  
+  <!-- Odoo Summary Stats -->
+  <div class="stat-row">
+    <div class="stat-card" onclick="loadOdooInvoices()">
+      <div class="icon" style="background:rgba(234,179,8,0.1);color:var(--yellow);">📄</div>
+      <div class="value" id="odooTotalInvoices">0</div>
+      <div class="label">Total Invoices</div>
+      <span class="trend trend-up" id="odooInvoiceAmount">$0</span>
+    </div>
+    <div class="stat-card" onclick="loadOdooCustomers()">
+      <div class="icon" style="background:var(--blue-bg);color:var(--blue);">👥</div>
+      <div class="value" id="odooTotalCustomers">0</div>
+      <div class="label">Total Customers</div>
+      <span class="trend trend-up">active</span>
+    </div>
+    <div class="stat-card" onclick="loadOdooBalance()">
+      <div class="icon" style="background:var(--green-bg);color:var(--green);">💵</div>
+      <div class="value" id="odooAccountBalance">$0</div>
+      <div class="label">Account Balance</div>
+      <span class="trend trend-up" id="odooCurrency">USD</span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="panel" style="margin-bottom:22px;">
+    <div class="panel-header">
+      <h2>📊 Odoo Data</h2>
+      <div style="display:flex;gap:8px;">
+        <button class="review-btn btn-toggle active" onclick="showOdooTab('invoices')" id="tab-invoices">Invoices</button>
+        <button class="review-btn btn-toggle" onclick="showOdooTab('customers')" id="tab-customers">Customers</button>
+        <button class="review-btn btn-toggle" onclick="showOdooTab('transactions')" id="tab-transactions">Transactions</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <!-- Invoices Tab -->
+      <div id="odoo-invoices-tab">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <h3 style="font-size:0.88rem;font-weight:600;">📄 Recent Invoices</h3>
+          <select id="invoiceStatusFilter" onchange="loadOdooInvoices()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:6px;font-size:0.78rem;">
+            <option value="posted">Posted</option>
+            <option value="draft">Draft</option>
+            <option value="paid">Paid</option>
+            <option value="all">All</option>
+          </select>
+        </div>
+        <div id="odooInvoicesTable" style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Invoice #</th>
+                <th>Customer</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Payment</th>
+              </tr>
+            </thead>
+            <tbody id="odooInvoicesBody">
+              <tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-dim);">Loading invoices...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Customers Tab -->
+      <div id="odoo-customers-tab" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <h3 style="font-size:0.88rem;font-weight:600;">👥 Customers</h3>
+          <input type="text" id="customerSearch" placeholder="Search customers..." onkeyup="debounceLoadCustomers()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:6px;font-size:0.78rem;width:200px;">
+        </div>
+        <div id="odooCustomersTable" style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Rank</th>
+              </tr>
+            </thead>
+            <tbody id="odooCustomersBody">
+              <tr><td colspan="5" style="text-align:center;padding:40px;color:var(--text-dim);">Loading customers...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Transactions Tab -->
+      <div id="odoo-transactions-tab" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <h3 style="font-size:0.88rem;font-weight:600;">💳 Recent Transactions</h3>
+          <div style="display:flex;gap:8px;">
+            <input type="date" id="transDateFrom" onchange="loadOdooTransactions()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:6px;font-size:0.78rem;">
+            <input type="date" id="transDateTo" onchange="loadOdooTransactions()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:6px;font-size:0.78rem;">
+          </div>
+        </div>
+        <div id="odooTransactionsTable" style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Entry</th>
+                <th>Account</th>
+                <th>Description</th>
+                <th>Debit</th>
+                <th>Credit</th>
+              </tr>
+            </thead>
+            <tbody id="odooTransactionsBody">
+              <tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-dim);">Loading transactions...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div><!-- /main -->
 
 <!-- ═══════════════ MODAL ═══════════════ -->
@@ -703,6 +828,23 @@ function animateCounters() {
       el.textContent = current;
     }, 30);
   });
+}
+
+// ── Animated Value Helper ───────────────
+function animateValue(elementId, start, end, duration) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const range = end - start;
+  const startTime = performance.now();
+  
+  function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.floor(start + (range * progress));
+    el.textContent = value.toLocaleString();
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
 }
 
 // ── Animated Bars ───────────────────────
@@ -1063,7 +1205,218 @@ var _origNavTo = navTo;
 navTo = function(page) {
   _origNavTo(page);
   if (page === 'review') loadPendingFiles();
+  if (page === 'odoo') {
+    loadOdooSummary();
+    // Auto-load invoices tab after a short delay
+    setTimeout(function() {
+      showOdooTab('invoices');
+    }, 500);
+  }
 };
+
+// ── Odoo Page Logic ─────────────────────
+var customerDebounceTimer = null;
+
+function showOdooTab(tabName) {
+  // Hide all tabs
+  document.getElementById('odoo-invoices-tab').style.display = 'none';
+  document.getElementById('odoo-customers-tab').style.display = 'none';
+  document.getElementById('odoo-transactions-tab').style.display = 'none';
+  
+  // Remove active from all buttons
+  document.getElementById('tab-invoices').classList.remove('active');
+  document.getElementById('tab-customers').classList.remove('active');
+  document.getElementById('tab-transactions').classList.remove('active');
+  
+  // Show selected tab
+  document.getElementById('odoo-' + tabName + '-tab').style.display = 'block';
+  document.getElementById('tab-' + tabName).classList.add('active');
+  
+  // Load data for the tab
+  if (tabName === 'invoices') loadOdooInvoices();
+  else if (tabName === 'customers') loadOdooCustomers();
+  else if (tabName === 'transactions') loadOdooTransactions();
+}
+
+function loadOdooSummary() {
+  fetch('/api/odoo/summary')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.error) {
+        document.getElementById('odooTotalInvoices').textContent = 'N/A';
+        document.getElementById('odooTotalCustomers').textContent = 'N/A';
+        document.getElementById('odooAccountBalance').textContent = 'N/A';
+        return;
+      }
+
+      // Set invoice amount and currency
+      var invoiceAmt = document.getElementById('odooInvoiceAmount');
+      if (invoiceAmt) invoiceAmt.textContent = '$' + data.total_invoices.toLocaleString();
+
+      // Set total invoices with animation
+      var totalInv = document.getElementById('odooTotalInvoices');
+      if (totalInv) {
+        totalInv.textContent = Math.round(data.total_invoices).toLocaleString();
+      }
+
+      // Set total customers with animation
+      var totalCust = document.getElementById('odooTotalCustomers');
+      if (totalCust) {
+        totalCust.textContent = data.total_customers.toLocaleString();
+      }
+
+      // Set account balance
+      var balanceEl = document.getElementById('odooAccountBalance');
+      var currencyEl = document.getElementById('odooCurrency');
+      if (balanceEl) {
+        balanceEl.textContent = '$' + data.account_balance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      }
+      if (currencyEl) {
+        currencyEl.textContent = data.currency || 'USD';
+      }
+    })
+    .catch(function(err) {
+      console.error('Error loading Odoo summary:', err);
+      document.getElementById('odooTotalInvoices').textContent = 'Error';
+      document.getElementById('odooTotalCustomers').textContent = 'Error';
+      document.getElementById('odooAccountBalance').textContent = 'Error';
+    });
+}
+
+function loadOdooInvoices() {
+  var tbody = document.getElementById('odooInvoicesBody');
+  if (!tbody) {
+    console.error('odooInvoicesBody element not found');
+    return;
+  }
+  
+  var status = document.getElementById('invoiceStatusFilter').value || 'posted';
+  console.log('Loading invoices with status:', status);
+  
+  fetch('/api/odoo/invoices?status=' + encodeURIComponent(status))
+    .then(function(r) { 
+      console.log('Response status:', r.status);
+      return r.json(); 
+    })
+    .then(function(data) {
+      console.log('Received invoices:', data);
+      if (!data.invoices || data.invoices.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-dim);">No invoices found</td></tr>';
+        return;
+      }
+
+      var html = '';
+      data.invoices.forEach(function(inv) {
+        var paymentBadge = '<span class="status-badge ' + (inv.payment_status === 'paid' ? 'status-running' : '') + '" style="' + (inv.payment_status !== 'paid' ? 'background:rgba(239,68,68,0.15);color:var(--red);' : '') + '">' + inv.payment_status.replace('_', ' ') + '</span>';
+
+        html += '<tr>' +
+          '<td style="font-weight:600;">' + inv.number + '</td>' +
+          '<td>' + inv.customer_name + '</td>' +
+          '<td style="font-weight:700;">$' + parseFloat(inv.amount_total || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</td>' +
+          '<td>' + inv.invoice_date + '</td>' +
+          '<td><span class="status-badge" style="background:var(--blue-bg);color:var(--blue);">' + inv.status + '</span></td>' +
+          '<td>' + paymentBadge + '</td>' +
+        '</tr>';
+      });
+      console.log('Setting HTML:', html);
+      tbody.innerHTML = html;
+    })
+    .catch(function(err) {
+      console.error('Error loading invoices:', err);
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--red);">Error loading invoices: ' + err + '</td></tr>';
+    });
+}
+
+function loadOdooCustomers() {
+  var search = document.getElementById('customerSearch').value || '';
+  fetch('/api/odoo/customers?search=' + encodeURIComponent(search))
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var tbody = document.getElementById('odooCustomersBody');
+      if (!data.customers || data.customers.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--text-dim);">No customers found</td></tr>';
+        return;
+      }
+      
+      var html = '';
+      data.customers.forEach(function(cust) {
+        var rankClass = cust.customer_rank >= 3 ? 'priority-p0' : (cust.customer_rank >= 2 ? 'priority-p1' : 'priority-p2');
+        html += '<tr>' +
+          '<td style="font-weight:600;">#' + cust.id + '</td>' +
+          '<td style="font-weight:600;">' + cust.name + '</td>' +
+          '<td>' + (cust.email || '-') + '</td>' +
+          '<td>' + (cust.phone || '-') + '</td>' +
+          '<td><span class="status-badge ' + rankClass + '">' + (cust.customer_rank || 0) + '</span></td>' +
+        '</tr>';
+      });
+      tbody.innerHTML = html;
+    })
+    .catch(function() {
+      document.getElementById('odooCustomersBody').innerHTML = '<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--red);">Error loading customers</td></tr>';
+    });
+}
+
+function debounceLoadCustomers() {
+  if (customerDebounceTimer) clearTimeout(customerDebounceTimer);
+  customerDebounceTimer = setTimeout(loadOdooCustomers, 300);
+}
+
+function loadOdooTransactions() {
+  var dateFrom = document.getElementById('transDateFrom').value || '';
+  var dateTo = document.getElementById('transDateTo').value || '';
+  var url = '/api/odoo/transactions';
+  var params = [];
+  if (dateFrom) params.push('date_from=' + encodeURIComponent(dateFrom));
+  if (dateTo) params.push('date_to=' + encodeURIComponent(dateTo));
+  if (params.length) url += '?' + params.join('&');
+  
+  fetch(url)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var tbody = document.getElementById('odooTransactionsBody');
+      if (!data.transactions || data.transactions.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-dim);">No transactions found</td></tr>';
+        return;
+      }
+      
+      var html = '';
+      data.transactions.forEach(function(t) {
+        var debit = t.debit ? '$' + parseFloat(t.debit).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '-';
+        var credit = t.credit ? '$' + parseFloat(t.credit).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '-';
+        html += '<tr>' +
+          '<td>' + t.date + '</td>' +
+          '<td style="font-weight:600;">' + t.journal_entry + '</td>' +
+          '<td>' + t.account_name + '</td>' +
+          '<td>' + (t.description || '-') + '</td>' +
+          '<td style="color:var(--green);font-weight:600;">' + debit + '</td>' +
+          '<td style="color:var(--red);font-weight:600;">' + credit + '</td>' +
+        '</tr>';
+      });
+      tbody.innerHTML = html;
+    })
+    .catch(function() {
+      document.getElementById('odooTransactionsBody').innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--red);">Error loading transactions</td></tr>';
+    });
+}
+
+function loadOdooBalance() {
+  fetch('/api/odoo/account-balance')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.balance) {
+        var balance = data.balance;
+        showModal('balance', {
+          title: 'Account Balance',
+          content: '<div style="font-size:1.5rem;font-weight:800;color:var(--green);margin-bottom:16px;">$' + parseFloat(balance.balance || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' ' + (balance.currency || 'USD') + '</div>' +
+            '<div class="detail-row"><span class="detail-label">Account Code:</span><span class="detail-value">' + (balance.code || 'N/A') + '</span></div>' +
+            '<div class="detail-row"><span class="detail-label">Account Name:</span><span class="detail-value">' + (balance.name || 'N/A') + '</span></div>' +
+            '<div class="detail-row"><span class="detail-label">Debit:</span><span class="detail-value" style="color:var(--green);">$' + parseFloat(balance.debit || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</span></div>' +
+            '<div class="detail-row"><span class="detail-label">Credit:</span><span class="detail-value" style="color:var(--red);">$' + parseFloat(balance.credit || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</span></div>'
+        });
+      }
+    })
+    .catch(function() { /* ignore */ });
+}
 </script>
 </body>
 </html>

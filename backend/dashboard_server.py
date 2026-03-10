@@ -19,13 +19,15 @@ from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 
 from backend.briefing.data_collectors import DataCollectors
+from backend.mcp_servers.odoo.odoo_client import OdooClient
 from backend.orchestrator.dashboard import (
     count_vault_files,
     get_action_log_counts,
     get_recent_done,
 )
 
-load_dotenv()
+# Load .env from config directory
+load_dotenv(dotenv_path=Path(__file__).parent.parent / "config" / ".env")
 
 logger = logging.getLogger(__name__)
 
@@ -169,6 +171,150 @@ async def reject_file(req: ActionRequest) -> JSONResponse:
     src.rename(dst)
     logger.info("REJECTED: %s -> Rejected/", req.filename)
     return JSONResponse(content={"status": "rejected", "filename": req.filename})
+
+
+# ── Odoo API Endpoints ─────────────────────────────────────────────────────
+
+
+def _get_odoo_client() -> OdooClient | None:
+    """Create Odoo client from env vars. Returns None if not configured."""
+    dev_mode = os.getenv("DEV_MODE", "true").lower() == "true"
+    odoo_url = os.getenv("ODOO_URL", "")
+    odoo_db = os.getenv("ODOO_DATABASE", "")
+    odoo_user = os.getenv("ODOO_USERNAME", "")
+    odoo_key = os.getenv("ODOO_API_KEY", "")
+
+    if not odoo_url or not odoo_db:
+        return None
+
+    return OdooClient(
+        url=odoo_url,
+        db=odoo_db,
+        username=odoo_user,
+        api_key=odoo_key,
+        dev_mode=dev_mode,
+    )
+
+
+@app.get("/api/odoo/invoices")
+async def list_odoo_invoices(limit: int = 20, status: str = "posted") -> JSONResponse:
+    """List invoices from Odoo."""
+    client = _get_odoo_client()
+    if not client:
+        return JSONResponse(content={"error": "Odoo not configured", "invoices": []})
+
+    try:
+        if client._dev_mode:
+            client._uid = 1
+            invoices = client.list_invoices(limit=limit, status=status)
+        else:
+            client.authenticate()
+            invoices = client.list_invoices(limit=limit, status=status)
+        return JSONResponse(content={"invoices": invoices})
+    except Exception as exc:
+        logger.error("Error fetching Odoo invoices: %s", exc)
+        return JSONResponse(content={"error": str(exc), "invoices": []})
+
+
+@app.get("/api/odoo/customers")
+async def list_odoo_customers(limit: int = 50, search: str = "") -> JSONResponse:
+    """List customers from Odoo."""
+    client = _get_odoo_client()
+    if not client:
+        return JSONResponse(content={"error": "Odoo not configured", "customers": []})
+
+    try:
+        if client._dev_mode:
+            client._uid = 1
+            customers = client.list_customers(search=search, limit=limit)
+        else:
+            client.authenticate()
+            customers = client.list_customers(search=search, limit=limit)
+        return JSONResponse(content={"customers": customers})
+    except Exception as exc:
+        logger.error("Error fetching Odoo customers: %s", exc)
+        return JSONResponse(content={"error": str(exc), "customers": []})
+
+
+@app.get("/api/odoo/transactions")
+async def list_odoo_transactions(
+    date_from: str = "",
+    date_to: str = "",
+    limit: int = 50,
+) -> JSONResponse:
+    """List transactions from Odoo."""
+    client = _get_odoo_client()
+    if not client:
+        return JSONResponse(content={"error": "Odoo not configured", "transactions": []})
+
+    try:
+        if client._dev_mode:
+            client._uid = 1
+            transactions = client.list_transactions(date_from=date_from, date_to=date_to, limit=limit)
+        else:
+            client.authenticate()
+            transactions = client.list_transactions(date_from=date_from, date_to=date_to, limit=limit)
+        return JSONResponse(content={"transactions": transactions})
+    except Exception as exc:
+        logger.error("Error fetching Odoo transactions: %s", exc)
+        return JSONResponse(content={"error": str(exc), "transactions": []})
+
+
+@app.get("/api/odoo/account-balance")
+async def get_odoo_account_balance(account_id: int = 1) -> JSONResponse:
+    """Get account balance from Odoo."""
+    client = _get_odoo_client()
+    if not client:
+        return JSONResponse(content={"error": "Odoo not configured", "balance": None})
+
+    try:
+        if client._dev_mode:
+            client._uid = 1
+            balance = client.get_account_balance(account_id)
+        else:
+            client.authenticate()
+            balance = client.get_account_balance(account_id)
+        return JSONResponse(content={"balance": balance})
+    except Exception as exc:
+        logger.error("Error fetching Odoo account balance: %s", exc)
+        return JSONResponse(content={"error": str(exc), "balance": None})
+
+
+@app.get("/api/odoo/summary")
+async def get_odoo_summary() -> JSONResponse:
+    """Get Odoo summary: total invoices, customers, and account balance."""
+    client = _get_odoo_client()
+    if not client:
+        return JSONResponse(content={
+            "error": "Odoo not configured",
+            "total_invoices": 0,
+            "total_customers": 0,
+            "account_balance": 0,
+        })
+
+    try:
+        if client._dev_mode:
+            client._uid = 1
+        else:
+            client.authenticate()
+
+        invoices = client.list_invoices(limit=100)
+        customers = client.list_customers(limit=100)
+        balance_data = client.get_account_balance(1)
+
+        total_invoices = sum(inv["amount_total"] for inv in invoices)
+        total_customers = len(customers)
+        account_balance = balance_data.get("balance", 0)
+
+        return JSONResponse(content={
+            "total_invoices": total_invoices,
+            "total_customers": total_customers,
+            "account_balance": account_balance,
+            "currency": balance_data.get("currency", "USD"),
+        })
+    except Exception as exc:
+        logger.error("Error fetching Odoo summary: %s", exc)
+        return JSONResponse(content={"error": str(exc), "total_invoices": 0, "total_customers": 0, "account_balance": 0})
 
 
 # ── WebSocket ────────────────────────────────────────────────────────────────
