@@ -369,7 +369,18 @@
 <!-- ═══════════════ OVERVIEW PAGE ═══════════════ -->
 <div class="section active" id="page-overview">
 
-  <div class="health-banner" onclick="showModal('health')">
+  <!-- SERVICE CARDS -->
+<div style="margin-bottom:30px;"><h2 style="font-size:1.1rem;margin-bottom:18px;">🚀 AI Employee Services</h2>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:20px;">
+<div onclick="window.open('http://92.4.77.107:8069', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='var(--accent)'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:1.5rem;">📊</span><div><h3 style="font-size:0.85rem;font-weight:700;margin:0;">Odoo ERP</h3><span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;">CRM & Accounting</span></div></div><p style="font-size:0.68rem;color:var(--text-dim);margin:0 0 10px 0;line-height:1.5;">CRM, Accounting & Invoicing</p><div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:8px;font-size:0.64rem;color:#ef4444;"><strong>🔴 Issues Detected</strong><br>Login: odoo / odoo_secure</div></div>
+<div onclick="window.open('https://web.whatsapp.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#25D366'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:1.5rem;">💬</span><div><h3 style="font-size:0.85rem;font-weight:700;margin:0;">WhatsApp</h3><span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;">AI Monitoring</span></div></div><p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.5;">AI monitors WhatsApp messages</p></div>
+<div onclick="window.open('https://www.instagram.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#E4405F'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:1.5rem;">📸</span><div><h3 style="font-size:0.85rem;font-weight:700;margin:0;">Instagram</h3><span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;">AI Monitoring</span></div></div><p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.5;">AI monitors Instagram</p></div>
+<div onclick="window.open('https://twitter.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#1DA1F2'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:1.5rem;">🐦</span><div><h3 style="font-size:0.85rem;font-weight:700;margin:0;">Twitter / X</h3><span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;">AI Auto-Post</span></div></div><p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.5;">AI monitors & posts to Twitter</p></div>
+<div onclick="window.open('https://www.linkedin.com/login', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#0a66c2'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:1.5rem;">💼</span><div><h3 style="font-size:0.85rem;font-weight:700;margin:0;">LinkedIn</h3><span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;">AI Auto-Post</span></div></div><p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.5;">AI monitors & posts professional</p></div>
+<div onclick="window.open('https://www.facebook.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#1877F2'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:1.5rem;">📘</span><div><h3 style="font-size:0.85rem;font-weight:700;margin:0;">Facebook</h3><span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;">AI Monitoring</span></div></div><p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.5;">AI monitors Facebook notifications</p></div>
+</div></div>
+
+<div class="health-banner" onclick="showModal('health')">
     <span class="health-icon">✅</span>
     <div><strong>System Healthy</strong> — All 4 watchers operational. Click for details.</div>
   </div>
@@ -1434,86 +1445,3 @@ function loadOdooBalance() {
 <script>function filterPendingItems(){var s=document.getElementById("pendingSearch").value.toLowerCase();var cards=document.querySelectorAll(".review-card");var c=0;for(var i=0;i<cards.length;i++){var card=cards[i];var title=card.querySelector(".review-card-title");var text=title?title.textContent.toLowerCase():card.textContent.toLowerCase();if(text.indexOf(s)>=0){card.style.display="";c++;}else{card.style.display="none";}}var el=document.getElementById("pendingCount");if(el){el.textContent=c+" items";}}</script><script>function filterPendingItems(){var s=document.getElementById("pendingSearch").value.toLowerCase();var cards=document.querySelectorAll(".review-card");var c=0;for(var i=0;i<cards.length;i++){var card=cards[i];var title=card.querySelector(".review-card-title");var text=title?title.textContent.toLowerCase():card.textContent.toLowerCase();if(text.indexOf(s)>=0){card.style.display="";c++;}else{card.style.display="none";}}var el=document.getElementById("pendingCount");if(el){el.textContent=c+" items";}}</script></body>
 </html>
 
-<!-- ═══════════════ SERVICE CARDS ═══════════════ -->
-<div style="margin-top:40px;">
-  <h2 style="font-size:1.1rem;margin-bottom:18px;">🚀 AI Employee Services</h2>
-  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px;">
-    
-    <!-- Odoo ERP Card -->
-    <div onclick="window.open('https://92.4.77.107:8069', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='var(--accent)'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <span style="font-size:1.5rem;">📊</span>
-        <div>
-          <h3 style="font-size:0.85rem;font-weight:700;margin:0;">Odoo ERP</h3>
-          <span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">CRM & Accounting</span>
-        </div>
-      </div>
-      <p style="font-size:0.68rem;color:var(--text-dim);margin:0 0 12px 0;line-height:1.6;">CRM, Accounting & Invoicing</p>
-      <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:10px;font-size:0.68rem;color:#ef4444;">
-        <strong>🔴 Issues Detected</strong><br>
-        Login: odoo / odoo_secure_pass_change_me
-      </div>
-    </div>
-
-    <!-- WhatsApp Card -->
-    <div onclick="window.open('https://web.whatsapp.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#25D366'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <span style="font-size:1.5rem;">💬</span>
-        <div>
-          <h3 style="font-size:0.85rem;font-weight:700;margin:0;">WhatsApp Web</h3>
-          <span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">AI Monitoring</span>
-        </div>
-      </div>
-      <p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.6;">AI monitors your WhatsApp messages and creates tasks</p>
-    </div>
-
-    <!-- Instagram Card -->
-    <div onclick="window.open('https://www.instagram.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#E4405F'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <span style="font-size:1.5rem;">📸</span>
-        <div>
-          <h3 style="font-size:0.85rem;font-weight:700;margin:0;">Instagram</h3>
-          <span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">AI Monitoring</span>
-        </div>
-      </div>
-      <p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.6;">AI monitors Instagram for important messages</p>
-    </div>
-
-    <!-- Twitter Card -->
-    <div onclick="window.open('https://twitter.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#1DA1F2'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <span style="font-size:1.5rem;">🐦</span>
-        <div>
-          <h3 style="font-size:0.85rem;font-weight:700;margin:0;">Twitter / X</h3>
-          <span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">AI Auto-Post</span>
-        </div>
-      </div>
-      <p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.6;">AI monitors & posts to Twitter automatically</p>
-    </div>
-
-    <!-- LinkedIn Card -->
-    <div onclick="window.open('https://www.linkedin.com/login', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#0a66c2'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <span style="font-size:1.5rem;">💼</span>
-        <div>
-          <h3 style="font-size:0.85rem;font-weight:700;margin:0;">LinkedIn</h3>
-          <span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">AI Auto-Post</span>
-        </div>
-      </div>
-      <p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.6;">AI monitors & posts professional updates</p>
-    </div>
-
-    <!-- Facebook Card -->
-    <div onclick="window.open('https://www.facebook.com', '_blank')" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='#1877F2'" onmouseout="this.style.transform='none',this.style.borderColor='var(--border)'">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <span style="font-size:1.5rem;">📘</span>
-        <div>
-          <h3 style="font-size:0.85rem;font-weight:700;margin:0;">Facebook</h3>
-          <span style="font-size:0.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;">AI Monitoring</span>
-        </div>
-      </div>
-      <p style="font-size:0.68rem;color:var(--text-dim);margin:0;line-height:1.6;">AI monitors Facebook for important notifications</p>
-    </div>
-
-  </div>
-</div>
