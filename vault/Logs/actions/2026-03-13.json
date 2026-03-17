@@ -1,0 +1,4695 @@
+{
+  "date": "2026-03-13",
+  "entries": [
+    {
+      "timestamp": "2026-03-13T16:12:44Z",
+      "correlation_id": "ede6ca84-818d-472e-82c7-763eb397faa4",
+      "actor": "orchestrator",
+      "action_type": "orchestrator_start",
+      "target": "orchestrator",
+      "result": "success",
+      "parameters": {
+        "details": "DEV_MODE=True",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:44Z",
+      "actor": "briefing-generator",
+      "action_type": "briefing_skipped",
+      "target": "vault/Briefings/",
+      "result": "success",
+      "details": "Briefing not due (wrong day, early time, or already generated today)"
+    },
+    {
+      "timestamp": "2026-03-13T16:12:46Z",
+      "correlation_id": "9aa552c1-ad7f-4b52-8653-2ec3b8de4ac4",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T161246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:46Z",
+      "correlation_id": "fc68e044-fc8c-4762-b382-9465a415ecfa",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T161246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:47Z",
+      "correlation_id": "9779bc49-3e6e-4025-86eb-0ebcbc821257",
+      "actor": "watchdog",
+      "action_type": "watcher_crash",
+      "target": "LinkedIn",
+      "result": "failure",
+      "parameters": {
+        "restart_count": 1,
+        "max_restarts": 3,
+        "details": "BrowserType.launch_persistent_context: Executable doesn't exist at /home/ubuntu/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell\n╔═════════════════"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:47Z",
+      "correlation_id": "3743540b-11f9-453b-b96f-c1fb4e227570",
+      "actor": "watchdog",
+      "action_type": "watcher_restart",
+      "target": "LinkedIn",
+      "result": "success",
+      "parameters": {
+        "restart_count": 1,
+        "max_restarts": 3,
+        "details": "Restart 1/3, backoff 2s"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:49Z",
+      "correlation_id": "c5aabd03-b4fd-42cf-a428-d8375db4976c",
+      "actor": "watchdog",
+      "action_type": "watcher_crash",
+      "target": "LinkedIn",
+      "result": "failure",
+      "parameters": {
+        "restart_count": 2,
+        "max_restarts": 3,
+        "details": "BrowserType.launch_persistent_context: Executable doesn't exist at /home/ubuntu/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell\n╔═════════════════"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:49Z",
+      "correlation_id": "21ac2240-1e6a-488c-950d-486c6bb67044",
+      "actor": "watchdog",
+      "action_type": "watcher_restart",
+      "target": "LinkedIn",
+      "result": "success",
+      "parameters": {
+        "restart_count": 2,
+        "max_restarts": 3,
+        "details": "Restart 2/3, backoff 4s"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:54Z",
+      "correlation_id": "43796daf-8d95-410a-b57b-d3e0df289f03",
+      "actor": "watchdog",
+      "action_type": "watcher_crash",
+      "target": "LinkedIn",
+      "result": "failure",
+      "parameters": {
+        "restart_count": 3,
+        "max_restarts": 3,
+        "details": "BrowserType.launch_persistent_context: Executable doesn't exist at /home/ubuntu/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell\n╔═════════════════"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:12:54Z",
+      "correlation_id": "990ca200-cc3c-4eca-9293-071c49e11cc5",
+      "actor": "watchdog",
+      "action_type": "watcher_failed",
+      "target": "LinkedIn",
+      "result": "failure",
+      "parameters": {
+        "restart_count": 3,
+        "max_restarts": 3,
+        "details": "Max restarts (3) exceeded"
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:14:46Z",
+      "correlation_id": "4466af0e-f3dc-41e9-957c-b6cabfbb3a56",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T161446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:16:46Z",
+      "correlation_id": "fef65bad-4629-40d0-85ef-be3eceb20085",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T161646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:17:46Z",
+      "correlation_id": "acc619bf-ebdc-4653-b716-41a5390cd15d",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T161746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:18:46Z",
+      "correlation_id": "53fe7b2d-7241-45c1-bd0b-9d7b9100c3fe",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T161846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:20:46Z",
+      "correlation_id": "5390c171-29af-4f93-9f41-92307abcebf6",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T162046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:22:46Z",
+      "correlation_id": "544be3cd-85bf-4e1c-ac05-cc5c2ec851f2",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T162246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:22:46Z",
+      "correlation_id": "456f3f7f-8ba5-4d65-b431-41c32dcadfa0",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T162246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:24:46Z",
+      "correlation_id": "1792de6d-7352-4257-8905-2b5c01d54b72",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T162446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:26:46Z",
+      "correlation_id": "d03ac9e4-a6df-43c9-9835-79761eee41ef",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T162646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:27:46Z",
+      "correlation_id": "10d073cb-ca3b-42fb-8f41-6efa1299acb4",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T162746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:28:46Z",
+      "correlation_id": "90ad5b67-1f10-4d01-b322-31cb572f476f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T162846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:30:46Z",
+      "correlation_id": "ce8ab775-4a12-4ae8-b6a0-7dd924019e10",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T163046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:32:46Z",
+      "correlation_id": "59d9db05-e447-45b3-a5ec-a0877861a2ed",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T163246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:32:46Z",
+      "correlation_id": "71f3de80-90c8-4d3d-af31-d93e440f8ec3",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T163246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:34:46Z",
+      "correlation_id": "97918297-c0df-40df-87e7-9827132ca43b",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T163446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:36:46Z",
+      "correlation_id": "d1cf4766-de3c-4341-a09a-61de55190967",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T163646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:37:46Z",
+      "correlation_id": "47d56a80-ed93-44cb-90ac-40b2260a7f92",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T163746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:38:46Z",
+      "correlation_id": "8a6e7132-c1f2-4f41-9e85-5fc89e0367bc",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T163846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:40:46Z",
+      "correlation_id": "f609ad0b-8c99-481e-af9e-86f01c25e870",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T164046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:42:46Z",
+      "correlation_id": "5a6e9cbf-030c-4b91-b71c-0d4452d167d8",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T164246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:42:46Z",
+      "correlation_id": "060ff405-a98b-4c08-8757-38c4cd2c8084",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T164246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:44:46Z",
+      "correlation_id": "235438ea-d2e5-4ea8-b8b7-7497b48a57f3",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T164446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:46:46Z",
+      "correlation_id": "f78e36e9-9298-4dcf-9aa6-4413fce84e11",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T164646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:47:46Z",
+      "correlation_id": "8116dacf-3a70-4604-8d0a-d2a8e0ba3e7e",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T164746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:48:46Z",
+      "correlation_id": "34774ee6-6945-4e2a-89b8-5d79a4b0ca17",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T164846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:50:46Z",
+      "correlation_id": "f940bf07-b2b2-45a8-b41a-3f562e64c4b6",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T165046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:52:46Z",
+      "correlation_id": "62f6efce-4305-48d6-b081-30b30ec914f6",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T165246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:52:46Z",
+      "correlation_id": "94440375-f45d-433c-b545-f84a21efb069",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T165246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:54:46Z",
+      "correlation_id": "0b8fe3f4-a815-4b0c-a26b-e1bb16daa90e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T165446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:56:46Z",
+      "correlation_id": "8f28348a-0fcc-43b2-8acf-357f0bd00dd1",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T165646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:57:46Z",
+      "correlation_id": "4b87e9ca-ac79-4ab2-8b4b-6cd3131fda93",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T165746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:58:46Z",
+      "correlation_id": "ecbb4769-02fe-4181-8e69-6835501edc18",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T165846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:00:46Z",
+      "correlation_id": "8a2b87f6-bbe1-453b-9019-9afef60e6fe5",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T170046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:02:46Z",
+      "correlation_id": "3a57a2a7-acff-45c2-beef-e655378e0f3f",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T170246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:02:46Z",
+      "correlation_id": "f5a1fe74-6ef7-4904-b181-2d07a6f1b721",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T170246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:04:46Z",
+      "correlation_id": "b199f219-0af6-4231-819f-d744da3be233",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T170446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:06:46Z",
+      "correlation_id": "1c5507f0-0ddb-4a8a-81ab-d8c7a7cf617c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T170646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:07:46Z",
+      "correlation_id": "21240da0-249c-48a6-939f-81497583ea4e",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T170746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:08:46Z",
+      "correlation_id": "53d600eb-2bcc-4300-bd99-56837ad1057c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T170846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:10:46Z",
+      "correlation_id": "8c1a5a0d-c709-413f-b648-4ac8bd9311e1",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T171046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:12:46Z",
+      "correlation_id": "657143aa-6542-4bd7-b7f3-00477da4f04e",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T171246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:12:46Z",
+      "correlation_id": "932861a1-7274-4157-9746-d978f16e89ea",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T171246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:14:46Z",
+      "correlation_id": "0b64bade-163d-42b7-8034-be96da812708",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T171446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:16:46Z",
+      "correlation_id": "af4a30aa-71c3-4032-9d8b-57a5df9ed84f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T171646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:17:46Z",
+      "correlation_id": "13285d18-b73c-4d93-9ad1-f49a064ef692",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T171746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:18:46Z",
+      "correlation_id": "16a30c74-c688-4089-ac90-c130906b9d4e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T171846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:20:46Z",
+      "correlation_id": "28823abf-de80-4b93-81b1-e6ddad3d4a30",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T172046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:22:46Z",
+      "correlation_id": "f1f5f8e5-f4bb-4343-bb6c-c5c01a9ef0fd",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T172246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:22:46Z",
+      "correlation_id": "f18301c3-9d7a-409c-bd95-d8345e605b64",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T172246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:24:46Z",
+      "correlation_id": "91179f64-6f88-4e75-9691-7a49774fa241",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T172446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:26:46Z",
+      "correlation_id": "6ad18baa-a4d9-4834-9622-46e24313bc8d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T172646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:27:46Z",
+      "correlation_id": "122bb6e7-ca28-48b6-b2b7-412792705845",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T172746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:28:46Z",
+      "correlation_id": "8d56fb74-c50b-4473-8e7c-4f3bbfe7b0f9",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T172846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:30:46Z",
+      "correlation_id": "3a892f4b-f9d3-4969-94a1-4340a878ec49",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T173046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:32:46Z",
+      "correlation_id": "5c0f2e2f-f5da-40a5-9069-8a255bcefea9",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T173246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:32:46Z",
+      "correlation_id": "e5512839-e8a2-4128-b077-e38f3cfd85d1",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T173246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:34:46Z",
+      "correlation_id": "7fb12047-64d4-4640-a3eb-dc3fbce52a60",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T173446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:36:46Z",
+      "correlation_id": "b840816d-e712-443b-ae45-721843d1f778",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T173646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:37:46Z",
+      "correlation_id": "289f02c0-8f15-4533-b70d-63503d9e40fb",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T173746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:38:46Z",
+      "correlation_id": "48a981dd-9966-44a8-917e-067a753f23c5",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T173846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:40:46Z",
+      "correlation_id": "6289f827-1daa-4142-beac-d02fd242858a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T174046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:42:46Z",
+      "correlation_id": "819adfa3-0d8c-4d8a-83a9-2c3759442046",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T174246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:42:46Z",
+      "correlation_id": "10748e33-f0ec-4b9e-9a69-36fe060d9cb7",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T174246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:44:46Z",
+      "correlation_id": "d6c1336b-a41f-4588-9cc2-f58d33a50fe0",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T174446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:46:46Z",
+      "correlation_id": "6aa536a7-1bc9-466c-82f3-833facedb38c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T174646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:47:46Z",
+      "correlation_id": "ff8a77ba-6c25-4b56-8525-b1f6a19820be",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T174746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:48:46Z",
+      "correlation_id": "b7e526e2-a35a-430d-89a5-4755ac95798a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T174846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:50:46Z",
+      "correlation_id": "c55af9d3-7ec1-4f7e-b11e-fc8adfa98593",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T175046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:52:46Z",
+      "correlation_id": "106adbb9-e6e5-4823-8d6c-516748194044",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T175246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:52:46Z",
+      "correlation_id": "37731619-203d-47cf-852b-009e0cee5b74",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T175246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:54:46Z",
+      "correlation_id": "626122a8-f5bd-4553-a84c-7eee8a79c6a4",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T175446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:56:46Z",
+      "correlation_id": "722d673d-45ab-4612-8877-0f2080af88ed",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T175646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:57:46Z",
+      "correlation_id": "fa4636df-3094-4d35-801c-8bef2bfa2965",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T175746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T17:58:46Z",
+      "correlation_id": "d4577170-4cc8-47c8-8cca-1263a319db81",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T175846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:00:46Z",
+      "correlation_id": "303ee5f1-c78b-425b-8eeb-ed1969271042",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T180046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:02:46Z",
+      "correlation_id": "fcd5682c-f890-441c-9ebf-6217124eb4e1",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T180246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:02:46Z",
+      "correlation_id": "23c10cdd-c737-4e3d-9b18-8dc3111732cf",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T180246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:04:46Z",
+      "correlation_id": "e619e06b-81b4-4de5-886e-c96625c840cb",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T180446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:06:46Z",
+      "correlation_id": "cb339db4-c0e0-48a8-b573-45daeda61e45",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T180646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:07:46Z",
+      "correlation_id": "ec79bcd4-3b75-4e0d-92d8-ad97600b62ba",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T180746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:08:46Z",
+      "correlation_id": "2bb5dcac-3d75-4f0d-81dc-7c2863f829d3",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T180846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:10:46Z",
+      "correlation_id": "9c0e9acd-30be-4e40-b93f-b85a06748bef",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T181046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:12:46Z",
+      "correlation_id": "f2932df3-e4c8-4117-9a9b-3cf8a96546df",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T181246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:12:46Z",
+      "correlation_id": "b0c97bfd-e8a3-431f-990c-fcb89070c0ba",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T181246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:14:46Z",
+      "correlation_id": "894d468a-d3a3-4a1c-a8d0-fd8b279b9bf8",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T181446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:16:46Z",
+      "correlation_id": "f9934850-5c6a-4e6c-ba8a-2b5056bb9ecf",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T181646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:17:46Z",
+      "correlation_id": "c478a03d-3eaa-489f-8174-60c437c4a085",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T181746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:18:46Z",
+      "correlation_id": "152c2aa8-987a-4b47-833d-5a7713a60354",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T181846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:20:46Z",
+      "correlation_id": "1ff3ec21-2b3b-44a4-be42-083f7fde3c13",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T182046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:22:46Z",
+      "correlation_id": "de16faf6-eb64-402e-83aa-40c0bbcc3e6e",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T182246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:22:46Z",
+      "correlation_id": "3bb77f1c-af74-4c78-92cb-20026bdb0f38",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T182246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:24:46Z",
+      "correlation_id": "6feb5ee2-1bdd-4881-9004-ad735ba713a8",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T182446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:26:46Z",
+      "correlation_id": "31cc58b2-5409-4a82-8895-2489e592d69e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T182646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:27:46Z",
+      "correlation_id": "dddcf026-1e03-412b-8e77-cb795f22c78b",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T182746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:28:46Z",
+      "correlation_id": "ae110277-eb22-4561-b2d9-0acbe1348bf9",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T182846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:30:46Z",
+      "correlation_id": "553850ca-3051-466c-923d-4b0b8f48e894",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T183046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:32:46Z",
+      "correlation_id": "d85da60d-46d3-44e4-8686-b1cffbd10bdd",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T183246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:32:46Z",
+      "correlation_id": "2c1d5b07-06ba-4a1e-a7b1-7b69f0e76916",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T183246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:34:46Z",
+      "correlation_id": "be853f5f-50a5-418b-9318-82ede72ac772",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T183446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:36:46Z",
+      "correlation_id": "e71be5bf-3bcd-4322-afbf-e2fba0a5c3ff",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T183646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:37:46Z",
+      "correlation_id": "0ea2cbcc-3377-4ba1-aea6-f7fd41a6c106",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T183746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:38:46Z",
+      "correlation_id": "2e9b5f2a-874f-4e5e-ab56-5465bc3a5121",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T183846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:40:46Z",
+      "correlation_id": "6a334e9b-a939-48aa-9ec5-e232fb0edf15",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T184046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:42:46Z",
+      "correlation_id": "c41da784-2283-49c7-815c-4f9585aa6c7a",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T184246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:42:46Z",
+      "correlation_id": "7917ba0a-5af3-43ab-a88a-4c970740bedb",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T184246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:44:46Z",
+      "correlation_id": "2c487cb1-ea77-489c-a213-56a862682450",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T184446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:46:46Z",
+      "correlation_id": "ff2479c0-d44f-40b8-b3c8-6c65c45b174d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T184646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:47:46Z",
+      "correlation_id": "64a3dd52-bf3f-434f-914a-f2c2e430416b",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T184746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:48:46Z",
+      "correlation_id": "a0ba69af-caa6-460e-970e-3653b49dccd8",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T184846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:50:46Z",
+      "correlation_id": "44e0a2e3-2963-4a9a-9d74-565dbc1981d3",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T185046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:52:46Z",
+      "correlation_id": "3b97ab84-b281-4db9-9833-896d5fede78c",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T185246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:52:46Z",
+      "correlation_id": "5dfc473e-b83f-4b9f-a2ee-38bc4b370fbb",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T185246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:54:46Z",
+      "correlation_id": "91b7285a-8e32-41c7-b8a0-10405cc9f33b",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T185446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:56:46Z",
+      "correlation_id": "1a0cc92c-f52f-431f-b504-04efd5202a9a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T185646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:57:46Z",
+      "correlation_id": "18806873-9f04-4aa3-8677-e2876923caec",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T185746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:58:46Z",
+      "correlation_id": "34d23748-9826-489f-8a28-ca4183957046",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T185846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:00:46Z",
+      "correlation_id": "642d2d80-1f9f-4920-b6af-d292a1c5c581",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T190046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:02:46Z",
+      "correlation_id": "17f47221-2bdc-4b2e-a057-486576ddb7bd",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T190246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:02:46Z",
+      "correlation_id": "7b877b0a-e0e3-42c2-8195-2ccb1bf8c8b5",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T190246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:04:46Z",
+      "correlation_id": "29a1907f-a8a3-4fda-ba54-242ae68ff6dd",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T190446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:06:46Z",
+      "correlation_id": "683f20a9-83bd-4fa9-8f14-0fd1e08dee67",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T190646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:07:46Z",
+      "correlation_id": "866c560f-95e7-4cd2-ae74-3fcf18517bb3",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T190746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:08:46Z",
+      "correlation_id": "ea32ef68-e896-4c08-9f01-372ba373445f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T190846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:10:46Z",
+      "correlation_id": "3f4d40a9-0bf1-4682-8dc4-fd3d72d46efb",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T191046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:12:46Z",
+      "correlation_id": "0327f57e-3867-4088-ba44-452e85496c2e",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T191246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:12:46Z",
+      "correlation_id": "810c653b-716a-4ddb-950c-973e756ffe20",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T191246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:14:46Z",
+      "correlation_id": "dd085b03-4ead-430e-ba46-0a306652ead5",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T191446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:16:46Z",
+      "correlation_id": "75cb8a6b-4c06-4239-b995-21fd15e871ec",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T191646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:17:46Z",
+      "correlation_id": "a6a5f2d5-a5a0-4253-b859-9ac3087364bc",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T191746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:18:46Z",
+      "correlation_id": "d436a955-1ea6-48e2-9a60-b5d51263dc2a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T191846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:20:46Z",
+      "correlation_id": "7bb2357a-f015-4cd5-a6ab-0372820ac916",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T192046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:22:46Z",
+      "correlation_id": "578a90ee-be79-4325-9cb0-6d9b12b05622",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T192246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:22:46Z",
+      "correlation_id": "738c593f-a183-4443-bcd8-bd4ba2b863a1",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T192246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:24:46Z",
+      "correlation_id": "4d9f8fd9-0fbd-4db8-a9d2-476f8c4ec117",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T192446.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:26:46Z",
+      "correlation_id": "4286264a-89af-487c-9050-85fb40b49d0b",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T192646.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:27:46Z",
+      "correlation_id": "f3bbbf1f-1a7f-4654-ab04-64cf422c33c6",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T192746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:28:46Z",
+      "correlation_id": "6e2c15a1-5c8f-479f-85c9-d13114145f94",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T192846.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:30:46Z",
+      "correlation_id": "c755215f-372d-43e3-a427-e8523af43eed",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T193046.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:32:46Z",
+      "correlation_id": "ef45b2c5-55db-499f-953b-8be09b41cb35",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T193246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:32:47Z",
+      "correlation_id": "f0744d97-7ebe-4ba6-926b-bd25030763da",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T193247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:34:47Z",
+      "correlation_id": "c52f995e-f294-403e-b87e-32f3e6d1f87f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T193447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:36:47Z",
+      "correlation_id": "369f09a1-9352-4187-a360-698b3d14bdf2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T193647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:37:46Z",
+      "correlation_id": "b5f3cf06-90b9-4787-860f-6495131ce13e",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T193746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:38:47Z",
+      "correlation_id": "365891fb-6bc3-453d-9cd9-8cdecd3bdf81",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T193847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:40:47Z",
+      "correlation_id": "f6214c9c-3bc9-40ea-a0c2-edb3e0ca2f93",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T194047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:42:46Z",
+      "correlation_id": "9f92a989-cf7a-4140-a985-59a3838916d5",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T194246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:42:47Z",
+      "correlation_id": "515d3280-f11e-46e4-95c1-2d08c14e3bf7",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T194247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:44:47Z",
+      "correlation_id": "f15f0ef6-8aba-4715-b875-9df15f9ec30f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T194447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:46:47Z",
+      "correlation_id": "b9419982-847e-47c1-839a-c97a4f97e451",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T194647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:47:46Z",
+      "correlation_id": "2acd4547-6b1e-4f01-b726-874b80c6b113",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T194746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:48:47Z",
+      "correlation_id": "698accc9-3fb6-46f4-97d3-7e3aca9fd15e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T194847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:50:47Z",
+      "correlation_id": "d60ce2de-3310-45db-b08f-a2b1bc3a095d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T195047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:52:46Z",
+      "correlation_id": "2418fdfe-b1e9-4b5a-9fce-ed01ea058582",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T195246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:52:47Z",
+      "correlation_id": "e19652a9-d529-4b3f-8d4e-19c75da1aaa1",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T195247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:54:47Z",
+      "correlation_id": "5ab5eb74-28ca-43c9-8c12-7d554eb50366",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T195447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:56:47Z",
+      "correlation_id": "b0a1a784-4864-4266-9862-26ad528da82f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T195647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:57:46Z",
+      "correlation_id": "a7209858-71dd-43f5-ac3d-3a66a016705b",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T195746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T19:58:47Z",
+      "correlation_id": "ed7de859-1f81-493f-a21f-10574ec568c2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T195847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:00:47Z",
+      "correlation_id": "e74ce045-dc61-46d6-b121-b18d6871aba2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T200047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:02:46Z",
+      "correlation_id": "9859f651-8e94-442e-9202-bd434118b449",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T200246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:02:47Z",
+      "correlation_id": "51774e1d-b392-4727-8c58-eec2f836c409",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T200247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:04:47Z",
+      "correlation_id": "1d65870e-9cb4-4286-b9a0-70207080ebc5",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T200447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:06:47Z",
+      "correlation_id": "53fad88b-ba7b-4d0f-8653-a7d189fa806c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T200647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:07:46Z",
+      "correlation_id": "b9190bc9-1372-43e4-96f3-a4c16ef1c5ae",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T200746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:08:47Z",
+      "correlation_id": "2aa958a5-0f23-4b6e-b061-41fb0776efa6",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T200847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:10:47Z",
+      "correlation_id": "749fc2f9-2e47-4985-b377-88107fb4c2ce",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T201047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:12:46Z",
+      "correlation_id": "ade057c9-fcc5-4eda-9293-0f35b0c3b4ae",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T201246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:12:47Z",
+      "correlation_id": "e3c2dba4-7985-4367-87d3-97c97a074da1",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T201247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:14:47Z",
+      "correlation_id": "74a32e7b-68c9-4dcd-a30a-38239d26bd1e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T201447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:16:47Z",
+      "correlation_id": "730b07d1-46c7-4929-8deb-59c30d3bc712",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T201647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:17:46Z",
+      "correlation_id": "cbbf6575-15a6-4e59-a761-25e5937f14f2",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T201746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:18:47Z",
+      "correlation_id": "61184449-40b7-4c5c-9717-667b5cb7fbd7",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T201847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:20:47Z",
+      "correlation_id": "1ea62a85-a9ee-46bb-b90c-7d4fd6576a5d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T202047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:22:46Z",
+      "correlation_id": "61d36943-c852-4008-9661-f7702492ce8f",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T202246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:22:47Z",
+      "correlation_id": "6cda1d6c-d063-42aa-9111-789b9946ebe0",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T202247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:24:47Z",
+      "correlation_id": "fe2aeb05-320a-4a8f-88c2-49a359e3e714",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T202447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:26:47Z",
+      "correlation_id": "0cffee32-4add-437d-ad43-0ab6a2b0a5b0",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T202647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:27:46Z",
+      "correlation_id": "acc58004-2c6f-4929-a94b-f5f462531256",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T202746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:28:47Z",
+      "correlation_id": "731ad418-c395-4a6a-9407-338d096642c2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T202847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:30:47Z",
+      "correlation_id": "85321f65-d031-40a0-a7d6-e14fd7dea497",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T203047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:32:46Z",
+      "correlation_id": "40da8b9c-b04f-4747-a551-40196a5d0eda",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T203246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:32:47Z",
+      "correlation_id": "77b412cd-5b1c-4d30-b4f5-ff2fee6ae030",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T203247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:34:47Z",
+      "correlation_id": "bedf6acd-e43b-43d3-a654-8dd7869cb1ce",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T203447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:36:47Z",
+      "correlation_id": "81220682-37d3-42cf-9111-968f6084cdf2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T203647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:37:46Z",
+      "correlation_id": "f566a857-bfc5-4658-a68e-599ecda7a018",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T203746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:38:47Z",
+      "correlation_id": "889fbe4c-cdba-491a-8a4c-8f04e0fed222",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T203847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:40:47Z",
+      "correlation_id": "11b14502-c4ba-40a0-8715-7f08c2b47fbb",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T204047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:42:46Z",
+      "correlation_id": "f330d0c5-3605-4a0f-a32b-e31b0f31e8a4",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T204246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:42:47Z",
+      "correlation_id": "7b27cef9-521a-4bca-ad65-16cc014de274",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T204247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:44:47Z",
+      "correlation_id": "96056f48-1313-4077-88e8-a08e8d086872",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T204447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:46:47Z",
+      "correlation_id": "2b7d2974-227f-4c26-bf17-b38f88fbdc96",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T204647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:47:46Z",
+      "correlation_id": "e09cb9b7-3a95-48cd-811e-a3c96e5f1ae7",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T204746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:48:47Z",
+      "correlation_id": "9f9260ea-ebf8-4347-a6b1-145f55b70e73",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T204847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:50:47Z",
+      "correlation_id": "aa8b9dc7-03fb-4c7c-a633-f8fb5533e772",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T205047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:52:46Z",
+      "correlation_id": "c058edf8-ef66-48fc-8492-5ad0cbe5b0b2",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T205246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:52:47Z",
+      "correlation_id": "62800440-e69f-4722-8ba8-0e44fffc9666",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T205247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:54:47Z",
+      "correlation_id": "6edab06f-e2f6-4c22-9679-958e0e06a44d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T205447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:56:47Z",
+      "correlation_id": "64d7412c-4301-46fa-8a54-783863624273",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T205647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:57:46Z",
+      "correlation_id": "fe7c00b2-c2eb-4786-95f6-c22bcb6bace7",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T205746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T20:58:47Z",
+      "correlation_id": "35256652-ad9a-49fb-bdf8-2bd751b12a01",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T205847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:00:47Z",
+      "correlation_id": "fd6f0515-e7b2-4cd1-ad7b-14f9c94c7051",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T210047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:02:46Z",
+      "correlation_id": "d3e85b5a-ae34-41c3-943f-33b6b71d4375",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T210246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:02:47Z",
+      "correlation_id": "2fb245ea-3514-4902-a1c7-d4e70e11f516",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T210247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:04:47Z",
+      "correlation_id": "2b3ad0de-66a9-4919-bbc3-d47c35597bd7",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T210447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:06:47Z",
+      "correlation_id": "d7b972a2-2542-441c-842b-418af6d5ce41",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T210647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:07:46Z",
+      "correlation_id": "e7db30eb-03b1-4391-bcac-543737fd2499",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T210746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:08:47Z",
+      "correlation_id": "5f13559d-96da-4076-b939-773ce7860d16",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T210847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:10:47Z",
+      "correlation_id": "29969f74-db97-4748-8325-0e524720b3be",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T211047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:12:46Z",
+      "correlation_id": "2f4aafe5-9996-4c70-8fb7-39871637325c",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T211246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:12:47Z",
+      "correlation_id": "e62049a9-6f55-4a5c-830c-526658db95b4",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T211247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:14:47Z",
+      "correlation_id": "73c894c3-6678-40e3-a87a-d9bfdc29fe04",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T211447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:16:47Z",
+      "correlation_id": "4b403bf0-0f07-4675-b490-25e38435bc91",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T211647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:17:46Z",
+      "correlation_id": "ce86d7c7-6230-4825-874a-44a9afdb1ade",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T211746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:18:47Z",
+      "correlation_id": "9811a4f0-e97f-4b67-a6eb-bfdc04b64fb2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T211847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:20:47Z",
+      "correlation_id": "bf2ecb5f-fdd3-4d1a-9772-67693954c152",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T212047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:22:46Z",
+      "correlation_id": "f2d01e28-d73e-4ba4-b5f0-40d647814d05",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T212246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:22:47Z",
+      "correlation_id": "f498fb7a-c85b-4dcd-a101-ca1f7e94c54e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T212247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:24:47Z",
+      "correlation_id": "b6d774dc-c288-4710-b052-0c960e77ad96",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T212447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:26:47Z",
+      "correlation_id": "f1e058ac-6a03-485c-b099-4d0a6c19206c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T212647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:27:46Z",
+      "correlation_id": "a4dfe3fb-0b78-4046-88bf-ad4160ae7691",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T212746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:28:47Z",
+      "correlation_id": "693bdb48-aacb-4e11-a026-69c0f36fc4aa",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T212847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:30:47Z",
+      "correlation_id": "80f98b64-5bd3-4ca1-8cbf-087dcb64bfd5",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T213047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:32:46Z",
+      "correlation_id": "851f8d6c-45c0-437d-a28b-a2656b598b77",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T213246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:32:47Z",
+      "correlation_id": "411f5c5d-2672-42ca-9554-d1063986e5e0",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T213247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:34:47Z",
+      "correlation_id": "03f839e6-7583-4a17-8950-f99703a47ef9",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T213447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:36:47Z",
+      "correlation_id": "5853501d-db90-4531-b6db-222768722e2c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T213647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:37:46Z",
+      "correlation_id": "2daf804e-9a4b-423e-af52-8c91ed4a5740",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T213746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:38:47Z",
+      "correlation_id": "e566077e-7f49-4fa9-ae09-e2e242d0bf5e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T213847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:40:47Z",
+      "correlation_id": "4c02bd52-d170-4e44-9400-11c616ff7b59",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T214047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:42:46Z",
+      "correlation_id": "43eb7b7e-1c67-499d-97de-4122b7943ff1",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T214246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:42:47Z",
+      "correlation_id": "850defed-9551-486e-8e97-fd467a392b2a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T214247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:44:47Z",
+      "correlation_id": "4e8b5258-ff71-413d-b692-ddc2c912ccaf",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T214447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:46:47Z",
+      "correlation_id": "1f03a871-6531-4cb2-aa5c-63275ff51506",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T214647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:47:46Z",
+      "correlation_id": "e2485b4d-b9c4-4049-958a-8532f8c66102",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T214746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:48:47Z",
+      "correlation_id": "5daa5686-fbda-4f5d-88c8-c43b842e064f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T214847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:50:47Z",
+      "correlation_id": "21721add-7ba2-4e33-b851-afbb97f1e5a7",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T215047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:52:46Z",
+      "correlation_id": "f86d2c31-e146-4ff4-8545-a674c8644431",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T215246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:52:47Z",
+      "correlation_id": "46e7b7f9-d30a-4322-b160-12aec1bd9733",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T215247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:54:47Z",
+      "correlation_id": "127634e7-e32c-4d18-be8d-80085910e980",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T215447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:56:47Z",
+      "correlation_id": "b2419c3a-f36e-4a56-b861-f75e2c7ae821",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T215647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:57:46Z",
+      "correlation_id": "6b4108ee-e8e3-465a-9e6c-91ccc26e49dd",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T215746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T21:58:47Z",
+      "correlation_id": "435ca0d4-3dc2-46be-8881-1871ce7a5272",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T215847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:00:47Z",
+      "correlation_id": "94b6f5c9-f013-4089-9f69-dfef5c633a31",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T220047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:02:46Z",
+      "correlation_id": "efce97a7-ac33-47e0-bc30-245c5484f6c2",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T220246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:02:47Z",
+      "correlation_id": "48d43124-6cdd-4e85-b668-605707ccf447",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T220247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:04:47Z",
+      "correlation_id": "6c4f9a38-06d6-43ff-a9ec-27d88e8a3ba3",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T220447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:06:47Z",
+      "correlation_id": "16083b17-3e48-457a-9e84-dea830377ec4",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T220647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:07:46Z",
+      "correlation_id": "1858ab67-1efc-4c7a-8a80-f28aef046e90",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T220746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:08:47Z",
+      "correlation_id": "8d22593b-fd9e-46d6-b354-48b31ece39d4",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T220847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:10:47Z",
+      "correlation_id": "abf6f241-e341-474a-bcd6-1255c18d2d55",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T221047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:12:46Z",
+      "correlation_id": "0bf24f08-ebea-446b-af98-3f21750e3b78",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T221246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:12:47Z",
+      "correlation_id": "20a39391-ea1f-486f-adca-b6c9be33f27c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T221247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:14:47Z",
+      "correlation_id": "f8d4bb41-0342-4dc8-b971-f655f01c3c5c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T221447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:16:47Z",
+      "correlation_id": "872b3c25-f875-42bb-98dc-dc7dbfbef352",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T221647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:17:46Z",
+      "correlation_id": "9c9b5c0c-86d5-48de-9435-76da76a82314",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T221746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:18:47Z",
+      "correlation_id": "1c7046b4-0403-45da-84f0-e5285a5598ca",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T221847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:20:47Z",
+      "correlation_id": "69bd7fa5-13bf-40c4-9027-f6a6a2971ad2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T222047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:22:46Z",
+      "correlation_id": "130548f8-a8c2-4d5e-a3a1-37de1bd2c166",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T222246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:22:47Z",
+      "correlation_id": "a7549f04-bd17-46a8-b1f5-20060b06d423",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T222247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:24:47Z",
+      "correlation_id": "0860784c-0aee-4ff1-b317-d03f19dd6fa9",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T222447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:26:47Z",
+      "correlation_id": "dd4ff038-296b-491c-9792-9b2ab0135e9d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T222647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:27:46Z",
+      "correlation_id": "409f49c8-0d46-43a6-aa1b-3e1b7ab1cc5d",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T222746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:28:47Z",
+      "correlation_id": "ca38d6b3-184a-4120-a3d2-02b7dccacac2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T222847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:30:47Z",
+      "correlation_id": "c2968e6d-566d-4dca-82d2-c6b96f18c62a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T223047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:32:46Z",
+      "correlation_id": "e2defe6b-9b90-48ed-800f-00a775685589",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T223246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:32:47Z",
+      "correlation_id": "4db892d9-3395-4191-b842-248255c37b2c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T223247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:34:47Z",
+      "correlation_id": "6f4c4bb4-9843-4582-b0c5-f60dc59d08ca",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T223447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:36:47Z",
+      "correlation_id": "3e33bebb-7325-42b9-a9a8-809be3764fb2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T223647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:37:46Z",
+      "correlation_id": "12edbf25-d69c-4d9c-b1ac-346fdb6e2053",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T223746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:38:47Z",
+      "correlation_id": "bb42cfb8-e772-402b-a47a-36b53263fc29",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T223847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:40:47Z",
+      "correlation_id": "ae3a3fad-3b62-46a6-82f7-0bdec134b892",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T224047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:42:46Z",
+      "correlation_id": "a8e6bf89-f61f-4b5c-aca3-af4201bec676",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T224246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:42:47Z",
+      "correlation_id": "c8f40e7c-2081-4090-8c05-e02d5815a814",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T224247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:44:47Z",
+      "correlation_id": "085ecf9b-b351-4c1c-90f5-45ad9ae7d709",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T224447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:46:47Z",
+      "correlation_id": "d1349320-c03d-4ff4-80af-2c4b3ffdca40",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T224647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:47:46Z",
+      "correlation_id": "7481e1bc-a0ca-4e4f-a767-36b07c60f532",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T224746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:48:47Z",
+      "correlation_id": "ebd3097e-6176-441a-9ee1-73152015337d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T224847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:50:47Z",
+      "correlation_id": "db13b25e-9f50-4a8c-a337-a6dd42633cef",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T225047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:52:46Z",
+      "correlation_id": "9d2b8679-0a2a-4d39-b9a5-0e8ab604ca2d",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T225246.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:52:47Z",
+      "correlation_id": "ecbac3d5-59a0-4865-9632-b202a4e5b1c8",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T225247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:54:47Z",
+      "correlation_id": "eb72811e-0da6-429c-b387-7341e568c706",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T225447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:56:47Z",
+      "correlation_id": "27d2ddb7-ef8a-46e0-9474-963772870082",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T225647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:57:46Z",
+      "correlation_id": "2ec4997b-ee26-4ec4-8dcf-a727434d65f4",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T225746.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T22:58:47Z",
+      "correlation_id": "99d134b7-63d6-4fe4-b425-3dbbb36ef8ea",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T225847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:00:47Z",
+      "correlation_id": "e604393c-76e4-495f-9d4e-3e21f796c279",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T230047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:02:47Z",
+      "correlation_id": "dbe5a45e-11a8-47d8-800b-243978402aae",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T230247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:02:47Z",
+      "correlation_id": "1963a4aa-7cb7-47de-8f77-7bb7019f4a3c",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T230247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:04:47Z",
+      "correlation_id": "4b4aa878-80af-42f6-a7ca-05ca30f14b1d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T230447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:06:47Z",
+      "correlation_id": "a57d6548-b768-4d0f-b794-e01c937b591d",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T230647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:07:47Z",
+      "correlation_id": "dc996184-f963-482f-89cb-244ed9b0b311",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T230747.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:08:47Z",
+      "correlation_id": "d7e6f333-4d34-460e-97ab-8b5e8d38dfb2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T230847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:10:47Z",
+      "correlation_id": "2735447c-d859-44c5-9228-03bd42bb486a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T231047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:12:47Z",
+      "correlation_id": "9dbe46fd-07ca-4ec3-a369-1bf825a432ea",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T231247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:12:47Z",
+      "correlation_id": "e8b32b98-a4d1-441a-98f8-3b0966e54843",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T231247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:14:47Z",
+      "correlation_id": "86812f4d-aecd-4963-bfdf-dae8b65ded12",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T231447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:16:47Z",
+      "correlation_id": "650652e5-7833-4160-b1b1-0fd931fa97dd",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T231647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:17:47Z",
+      "correlation_id": "c3a2bef6-c1cf-400c-bc8b-443b393550fa",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T231747.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:18:47Z",
+      "correlation_id": "a72b9b9c-1cc1-4d45-be54-72654694e196",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T231847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:20:47Z",
+      "correlation_id": "72aee67c-254f-4d82-a78e-caa7a691dfa2",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T232047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:22:47Z",
+      "correlation_id": "20089c2c-c892-4a49-910f-f1ac0f623b4d",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T232247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:22:47Z",
+      "correlation_id": "8fa06426-3d2d-416a-ab91-d62e0e1ec002",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T232247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:24:47Z",
+      "correlation_id": "03a6d90e-bae0-405f-9da6-646413761dc5",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T232447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:26:47Z",
+      "correlation_id": "51197215-b648-49c1-9449-f7135f5fd997",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T232647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:27:47Z",
+      "correlation_id": "86bae77e-bed7-426d-9fd4-43466958dcdb",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T232747.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:28:47Z",
+      "correlation_id": "8551b796-0756-478c-89c1-4ae7ba6f5136",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T232847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:30:47Z",
+      "correlation_id": "20542ac7-a568-403a-a719-1bee09fd90af",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T233047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:32:47Z",
+      "correlation_id": "e7be60e3-4e1c-4f45-a96d-8eba1e81226b",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T233247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:32:47Z",
+      "correlation_id": "64e113f1-273c-4d96-a6dd-ce5471ef2935",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T233247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:34:47Z",
+      "correlation_id": "341baeb0-0388-46d3-8c6a-4175fa7871c3",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T233447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:36:47Z",
+      "correlation_id": "a442504d-d78a-49d4-b120-0b6a8077d0bd",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T233647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:37:47Z",
+      "correlation_id": "af4b12a4-093a-4276-9356-398d4bcef221",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T233747.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:38:47Z",
+      "correlation_id": "b4f3eafa-ee5d-4804-9e35-eb0ac65cab2f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T233847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:40:47Z",
+      "correlation_id": "497da3f9-ba7a-409d-908c-9706366d0e44",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T234047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:42:47Z",
+      "correlation_id": "8946e278-df07-4509-9eaf-14679a05ac01",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T234247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:42:47Z",
+      "correlation_id": "3eb946bf-7ee4-4c25-b7dd-d695fc21663f",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T234247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:44:47Z",
+      "correlation_id": "7a2b98e9-171b-4bcd-94b5-6874fb3726fe",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T234447.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:46:47Z",
+      "correlation_id": "2123840e-d309-41c5-999c-298991dfe59e",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T234647.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:47:47Z",
+      "correlation_id": "422182f2-c252-4957-af78-969d8bc4492e",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T234747.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:48:47Z",
+      "correlation_id": "218ca06b-ef30-488e-b840-b04950c2d5fd",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T234847.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:50:47Z",
+      "correlation_id": "5d8dc297-fcc6-497f-a602-ba436ea2334a",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T235047.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:52:47Z",
+      "correlation_id": "58e9dc98-198f-4c76-832f-a0f5f3bbc453",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T235247.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:52:48Z",
+      "correlation_id": "0c74e3ef-03a8-40da-bb10-0d24240f29ff",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T235248.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:54:48Z",
+      "correlation_id": "550ac288-fc7d-4cc8-bb68-99fab5349a33",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T235448.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:56:48Z",
+      "correlation_id": "661ce3f2-a20e-41eb-9837-04169375cf70",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T235648.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:57:47Z",
+      "correlation_id": "a247acc7-f77d-4d7a-95fd-62db120acdd5",
+      "actor": "twitter_watcher",
+      "action_type": "twitter_processed",
+      "target": "TWITTER_dev-mode_20260313T235747.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:58:48Z",
+      "correlation_id": "9751eb31-f926-462e-848a-25ee8ce3edd7",
+      "actor": "facebook_watcher",
+      "action_type": "facebook_processed",
+      "target": "FACEBOOK_dev-mode_20260313T235848.md",
+      "result": "success",
+      "parameters": {
+        "item_type": "notification",
+        "sender": "[DEV_MODE]",
+        "priority": "low",
+        "dev_mode": true
+      }
+    }
+  ]
+}

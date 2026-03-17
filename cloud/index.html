@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Employee - Cloud Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; background: #f5f5f5; }
+        .card { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; }
+        h2 { color: #34495e; font-size: 18px; }
+        .status { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 14px; }
+        .online { background: #27ae60; color: white; }
+        .warning { background: #f39c12; color: white; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .step { background: #ecf0f1; padding: 15px; margin: 10px 0; border-left: 4px solid #3498db; }
+        code { background: #2c3e50; color: #ecf0f1; padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 AI Employee - Cloud Dashboard</h1>
+    
+    <div class="card">
+        <h2>✅ System Status</h2>
+        <p><strong>Cloud Agent:</strong> <span class="status online">ONLINE</span></p>
+        <p><strong>Health Monitor:</strong> <span class="status online">ONLINE</span></p>
+        <p><strong>Odoo Database:</strong> <span class="status warning">NEEDS SETUP</span></p>
+    </div>
+
+    <div class="card">
+        <h2>📋 Quick Links</h2>
+        <ul>
+            <li><a href="/health" target="_blank">Health Monitor API</a> - System status JSON</li>
+            <li><a href="http://92.4.77.107:8069" target="_blank">Odoo Direct (Port 8069)</a> - First-time setup required</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>⚠️ IMPORTANT: Oracle Cloud Firewall Setup</h2>
+        <div class="step">
+            <strong>Step 1:</strong> Login to <a href="https://cloud.oracle.com/" target="_blank">Oracle Cloud Console</a>
+        </div>
+        <div class="step">
+            <strong>Step 2:</strong> Go to: <strong>Networking</strong> → <strong>Virtual Cloud Networks</strong>
+        </div>
+        <div class="step">
+            <strong>Step 3:</strong> Click your VCN → <strong>Security Lists</strong> → <strong>Default Security List</strong>
+        </div>
+        <div class="step">
+            <strong>Step 4:</strong> Click <strong>Add Ingress Rules</strong> and add:
+            <ul>
+                <li><code>0.0.0.0/0</code> → Port <code>80</code> (HTTP)</li>
+                <li><code>0.0.0.0/0</code> → Port <code>443</code> (HTTPS)</li>
+                <li><code>0.0.0.0/0</code> → Port <code>8069</code> (Odoo)</li>
+                <li><code>0.0.0.0/0</code> → Port <code>8080</code> (Health)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🔧 Odoo First-Time Setup</h2>
+        <div class="step">
+            <strong>1.</strong> Open <a href="http://92.4.77.107:8069" target="_blank">http://92.4.77.107:8069</a>
+        </div>
+        <div class="step">
+            <strong>2.</strong> Fill in:
+            <ul>
+                <li><strong>Master Password:</strong> <code>odoo_secure_pass_2026</code></li>
+                <li><strong>Email:</strong> <code>admin@example.com</code></li>
+                <li><strong>Password:</strong> (choose your password)</li>
+                <li><strong>Database:</strong> <code>odoo</code></li>
+            </ul>
+        </div>
+        <div class="step">
+            <strong>3.</strong> Click <strong>Create Database</strong>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📝 SSH Commands</h2>
+        <pre><code># Connect to server
+ssh -i "C:\Users\AL-MALAK\Downloads\ai-empoly-key\ssh-key-2026-03-13.key" ubuntu@92.4.77.107
+
+# Check status
+pm2 status
+
+# View logs
+pm2 logs ai-employee-cloud
+
+# Health check
+curl http://localhost:8080/health</code></pre>
+    </div>
+
+    <p style="text-align: center; color: #7f8c8d; margin-top: 40px;">
+        Deployed on Oracle Cloud • Server IP: <strong>92.4.77.107</strong>
+    </p>
+</body>
+</html>

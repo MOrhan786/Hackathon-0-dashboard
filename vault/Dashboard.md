@@ -1,48 +1,61 @@
 # AI Employee Dashboard [PRODUCTION]
 
-**Last Updated**: 2026-03-03T05:49:04Z
-**Uptime**: 1m 29s
+**Last Updated**: 2026-03-16T10:37:34Z
+**Uptime**: 42h 35m
 
 > [!info] Quick Stats
-> **44** vault files | **28** pending | **12** done | **52** emails | **1** social posts (7d)
+> **1046** vault files | **1025** pending | **14** done | **0** emails | **0** social posts (7d)
 
 <!-- BRIEFING_SECTION_START -->
 <!-- BRIEFING_SECTION_END -->
 
-> [!success] System Health
-> All 7 watchers operational. No errors detected.
+> [!warning] System Health
+> 3 error(s) detected. 2/5 watchers running.
 
 ## Watcher Status
 
 | Watcher | Status | Restarts | Last Error | Started |
 |---------|--------|----------|------------|---------|
-| Gmail | 🟢 running | 0 | — | 2026-03-03T05:48:35Z |
-| VaultAction | 🟢 running | 0 | — | 2026-03-03T05:48:35Z |
-| WhatsApp | 🟢 running | 0 | — | 2026-03-03T05:48:37Z |
-| LinkedIn | 🟢 running | 0 | — | 2026-03-03T05:48:46Z |
-| Facebook | 🟢 running | 0 | — | 2026-03-03T05:48:46Z |
-| Instagram | 🟢 running | 0 | — | 2026-03-03T05:48:46Z |
-| Twitter | 🟢 running | 0 | — | 2026-03-03T05:48:46Z |
+| Gmail | 🟢 running | 0 | — | 2026-03-14T16:02:27Z |
+| VaultAction | 🟢 running | 0 | — | 2026-03-14T16:02:27Z |
+| LinkedIn | 🔴 failed | 3 | BrowserType.launch_persistent_context: Target page, context  | 2026-03-14T16:02:35Z |
+| Facebook | 🔴 failed | 3 | BrowserType.launch_persistent_context: Target page, context  | 2026-03-14T16:02:35Z |
+| Twitter | 🔴 failed | 3 | BrowserType.launch_persistent_context: Target page, context  | 2026-03-14T16:02:35Z |
 
 ## Vault Status
 
 | Folder | Files |
 |--------|-------|
 | [[Inbox]] | 0 |
-| [[Needs_Action]] | 18 |
+| [[Needs_Action]] | 0 |
 | [[Plans]] | 2 |
-| [[Pending_Approval]] | 10 |
-| [[Approved]] | 2 |
-| [[Rejected]] | 0 |
-| [[Done]] | 12 |
+| [[Pending_Approval]] | 1025 |
+| [[Approved]] | 3 |
+| [[Rejected]] | 2 |
+| [[Done]] | 14 |
 
 ## Recent Activity
 
-- [[Done/whatsapp-reply--20260228T012757]]
-- [[Done/LINKEDIN_POST_2026-02-28]]
+- [[Done/LINKEDIN_POST_2026-03-13]]
+- [[Done/LINKEDIN_POST_2026-03-01]]
+- [[Done/reply-checking-20260227T050758]]
 - [[Done/linkedin-reply-nousheen-adeel-20260301T124310]]
-- [[Done/linkedin-reply-nimra-naz-20260228T005521]]
-- [[Done/linkedin-reply-nimra-naz-20260227T234627]]
+- [[Done/LINKEDIN_POST_2026-02-28]]
+
+## Recent Errors
+
+- LinkedIn: BrowserType.launch_persistent_context: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /home/ubuntu/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome --disable-field-
+- Facebook: BrowserType.launch_persistent_context: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /home/ubuntu/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome --disable-field-
+- Twitter: BrowserType.launch_persistent_context: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /home/ubuntu/.cache/ms-playwright/chromium-1208/chrome-linux64/chrome --disable-field-
 
 ## Navigation
 

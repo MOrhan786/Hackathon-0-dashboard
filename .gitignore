@@ -78,3 +78,41 @@ vault/Logs/**/*.md
 
 # UV lock file (optional - some teams commit this)
 # uv.lock
+
+# LinkedIn Session (NEVER COMMIT)
+config/linkedin_session/
+config/linkedin_session/storage.json
+
+# WhatsApp Session
+config/whatsapp_session/
+
+# Twitter Session
+config/twitter_session/
+
+# Facebook/Meta Session
+config/meta_session/
+
+# Odoo Session
+config/odoo_session/
+
+# Gmail Session
+config/gmail_session/
+
+# SSH Keys
+*.key
+*.pem
+id_rsa
+id_ed25519
+
+# Log files with sensitive data
+logs/*.log
+*.log
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Local development
+linkedin_login.py
+local_settings.py

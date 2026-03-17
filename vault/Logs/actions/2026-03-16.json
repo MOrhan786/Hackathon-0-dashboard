@@ -1,0 +1,43 @@
+{
+  "date": "2026-03-16",
+  "entries": [
+    {
+      "timestamp": "2026-03-16T10:37:46Z",
+      "correlation_id": "d6e167fb-5656-442b-ad26-1f635e62cac0",
+      "actor": "watchdog",
+      "action_type": "watcher_stop",
+      "target": "Gmail",
+      "result": "success",
+      "parameters": {
+        "restart_count": 0,
+        "max_restarts": 3,
+        "details": "Graceful shutdown"
+      }
+    },
+    {
+      "timestamp": "2026-03-16T10:37:46Z",
+      "correlation_id": "6ef90919-d2d0-4719-b2d6-eaad90113d77",
+      "actor": "watchdog",
+      "action_type": "watcher_stop",
+      "target": "VaultAction",
+      "result": "success",
+      "parameters": {
+        "restart_count": 0,
+        "max_restarts": 3,
+        "details": "Graceful shutdown"
+      }
+    },
+    {
+      "timestamp": "2026-03-16T10:37:46Z",
+      "correlation_id": "af932d0a-cc6d-4239-8116-1b534ff16dde",
+      "actor": "orchestrator",
+      "action_type": "orchestrator_stop",
+      "target": "orchestrator",
+      "result": "success",
+      "parameters": {
+        "details": "Graceful shutdown",
+        "dev_mode": false
+      }
+    }
+  ]
+}

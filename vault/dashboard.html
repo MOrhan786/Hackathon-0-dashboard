@@ -641,7 +641,7 @@
 
 <!-- ═══════════════ REVIEW PAGE ═══════════════ -->
 <div class="section" id="page-review">
-  <h2 style="font-size:1.1rem;margin-bottom:18px;">🔍 Review & Approve — Pending Items</h2>
+  <h2 style="font-size:1.1rem;margin-bottom:18px;">🔍 Review & Approve — Pending Items</h2><input type="text" id="pendingSearch" placeholder="🔍 Search: linkedin, facebook, email..." onkeyup="filterPendingItems()" style="width:100%;padding:12px;margin:16px 0;border-radius:8px;background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:0.85rem;"><span id="pendingCount" style="color:var(--text-dim);font-size:0.78rem;"></span>
   <div id="reviewList" style="display:flex;flex-direction:column;gap:14px;">
     <div style="text-align:center;padding:40px;color:var(--text-dim);">Loading pending items...</div>
   </div>
@@ -1418,5 +1418,5 @@ function loadOdooBalance() {
     .catch(function() { /* ignore */ });
 }
 </script>
-</body>
+<script>function filterPendingItems(){var s=document.getElementById("pendingSearch").value.toLowerCase();var cards=document.querySelectorAll(".review-card");var c=0;for(var i=0;i<cards.length;i++){var card=cards[i];var title=card.querySelector(".review-card-title");var text=title?title.textContent.toLowerCase():card.textContent.toLowerCase();if(text.indexOf(s)>=0){card.style.display="";c++;}else{card.style.display="none";}}var el=document.getElementById("pendingCount");if(el){el.textContent=c+" items";}}</script><script>function filterPendingItems(){var s=document.getElementById("pendingSearch").value.toLowerCase();var cards=document.querySelectorAll(".review-card");var c=0;for(var i=0;i<cards.length;i++){var card=cards[i];var title=card.querySelector(".review-card-title");var text=title?title.textContent.toLowerCase():card.textContent.toLowerCase();if(text.indexOf(s)>=0){card.style.display="";c++;}else{card.style.display="none";}}var el=document.getElementById("pendingCount");if(el){el.textContent=c+" items";}}</script></body>
 </html>
