@@ -14,9 +14,9 @@
 
 ## 🎬 Video Demo
 
-### [**📺 Watch Project Demo on YouTube**](YOUR_YOUTUBE_LINK_HERE)
+### [**📺 Watch Project Demo on YouTube**]
 
-**Replace with your YouTube video URL**
+**https://youtube.com/shorts/nCJUMPjoosAL**
 
 ---
 
