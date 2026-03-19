@@ -16,9 +16,17 @@
 
 ### [**📺 Watch Project Demo on YouTube**](YOUR_YOUTUBE_LINK_HERE)
 
-**Replace `YOUR_YOUTUBE_LINK_HERE` with your actual YouTube video URL**
+**Replace with your YouTube video URL**
 
-Example: `https://www.youtube.com/watch?v=YOUR_VIDEO_ID`
+---
+
+## 💼 Connect on LinkedIn
+
+### [**🔗 View My LinkedIn Profile**](YOUR_LINKEDIN_PROFILE_LINK)
+
+**Replace `YOUR_LINKEDIN_PROFILE_LINK` with your LinkedIn profile URL**
+
+Example: `https://www.linkedin.com/in/your-profile`
 
 ---
 
@@ -68,6 +76,7 @@ Example: `https://www.youtube.com/watch?v=YOUR_VIDEO_ID`
 
 - [🚀 Live Demo](http://92.4.77.107:80)
 - [📺 YouTube Demo](YOUR_YOUTUBE_LINK_HERE)
+- [💼 LinkedIn Profile](YOUR_LINKEDIN_PROFILE_LINK)
 - [🏦 Odoo ERP](http://92.4.77.107:8069)
 - [💼 GitHub Repository](https://github.com/MOrhan786/Hackathon-0-dashboard)
 
