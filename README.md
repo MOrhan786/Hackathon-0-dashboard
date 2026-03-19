@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-### **🌐 Click Here To Open Live Website**(http://92.4.77.107:80)
+### **🌐 Click Here To Open Live Website**
 
 **Direct Link:** http://92.4.77.107:80
 
@@ -14,9 +14,9 @@
 
 ## 🎬 Video Demo
 
-### [**📺 Watch Project Demo on YouTube**]
+### **📺 Watch Project Demo on YouTube**
 
-**https://youtube.com/shorts/nCJUMPjoosAL**
+**https://youtube.com/shorts/nCJUMPjoosA**
 
 ---
 
