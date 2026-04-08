@@ -22,7 +22,7 @@
 
 ## 💼 Connect on LinkedIn
 
-### [**🔗 View My LinkedIn Profile**](YOUR_LINKEDIN_PROFILE_LINK)
+### [**🔗 View My LinkedIn Profile**](https://www.linkedin.com/in/your-profile)
 
 **Replace `YOUR_LINKEDIN_PROFILE_LINK` with your LinkedIn profile URL**
 
