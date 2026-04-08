@@ -24,7 +24,7 @@
 
 ### [**🔗 View My LinkedIn Profile**](https://www.linkedin.com/in/your-profile)
 
-**Replace `YOUR_LINKEDIN_PROFILE_LINK` with your LinkedIn profile URL**
+**Replace `https://www.linkedin.com/in/your-profile` with your LinkedIn profile URL**
 
 Example: `https://www.linkedin.com/in/your-profile`
 
