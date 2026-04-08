@@ -22,11 +22,11 @@
 
 ## 💼 Connect on LinkedIn
 
-### [**🔗 View My LinkedIn Profile**](https://www.linkedin.com/in/your-profile)
+### [**🔗 View My LinkedIn Profile**](https://www.linkedin.com/in/razia-fatima-041290329/recent-activity/all/)
 
-**Replace `https://www.linkedin.com/in/your-profile` with your LinkedIn profile URL**
+**Replace `https://www.linkedin.com/in/razia-fatima-041290329/recent-activity/all/` with your LinkedIn profile URL**
 
-Example: `https://www.linkedin.com/in/your-profile`
+Example: `https://www.linkedin.com/in/razia-fatima-041290329/recent-activity/all/`
 
 ---
 
